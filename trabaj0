@@ -1,4 +1,28 @@
-hola, ni idea de como usar eso.
-el de jonathan no me dejaba editarlo y pues creo que eeste si, por favor alguno que lo edite
-creo que ya estoy entendiendo jajajaj
-si me deja editarlo soy junior.
+package colorBox;
+
+public class Persona{
+    public String nombre;
+    public long id;
+    Persona(){}
+    Persona(String name,long iden){
+        nombre=name;
+        id=iden;
+    }
+    Persona(long ide,String name){
+        nombre=name;
+        id=iden;
+    }
+}
+
+public class Empleado extends Persona{
+	public int sueldo,empleadoNum,horas;
+	String cargo;
+	Empleado(String nombre,String cargo,int id){
+		this.nombre=nombre;
+		this.id=id;
+		this.cargo=cargo;
+	}
+	public void denominarSueldo(int horas) {
+		CEO.asignarSueldo(horas);
+	}
+}
