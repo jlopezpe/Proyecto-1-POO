@@ -41,7 +41,7 @@ public class Manufactura {
 	static ArrayList<Dulce> Deposito_confites;
 	
 	
-	public static void CrearDulce() {
+	private static void CrearDulce() {
 		
 		
 		String tipo_dulce;
