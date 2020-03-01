@@ -1,5 +1,4 @@
 public class Repartidor extends Empleado{
-    public  int numRepartidor=2;
     public static int idRepar;
     public String placa;
     public static int max=5;
@@ -7,7 +6,7 @@ public class Repartidor extends Empleado{
     int numPedidos=pedido.size();
     
     Repartidor(String nombre,String plac,String cargo){
-        numRepartidor=idRepar;
+        id=idRepar;
         this.nombre=nombre;
         this.cargo=cargo;
         placa=plac;
