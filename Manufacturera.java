@@ -1,9 +1,9 @@
 import java.util.*;
 public class Manufacturera {
 	
-	static int Azucar=15;
-	static int Colorante=15;
-	static int Almidon=15;
+	public static int Azucar=15;
+	public static int Colorante=15;
+	public static int Almidon=15;
 	
 	private static ArrayList<Dulce> Deposito_gomitas= new ArrayList<Dulce>();;
 	private static ArrayList<Dulce> Deposito_chocolate= new ArrayList<Dulce>();;
@@ -22,7 +22,7 @@ public class Manufacturera {
 		tipo_dulce = input.next();
 		if(tipo_dulce.equals("chocolate")){
 			
-			System.out.println("Que chocolate quiere?"+"  "+"Escriba el número");
+			System.out.println("Que chocolate quiere?"+"  "+"Escriba el nÃºmero");
 			
 			String a="Kitkat";
 			String b="Crunch";
@@ -101,7 +101,7 @@ public class Manufacturera {
 		
 		if(tipo_dulce.equals("gomitas")){
 			
-			System.out.println("Que gomitas quiere?"+"  "+"Escriba el número");
+			System.out.println("Que gomitas quiere?"+"  "+"Escriba el nÃºmero");
 			
 			String a="Haribo";
 			String b="Trululu";
@@ -181,7 +181,7 @@ public class Manufacturera {
 			
 		if(tipo_dulce.equals("confites")){
 				
-			System.out.println("Que confites quiere?"+"  "+"Escriba el número");
+			System.out.println("Que confites quiere?"+"  "+"Escriba el nÃºmero");
 				
 			String a="Smarties";
 			String b="Nikolo";
