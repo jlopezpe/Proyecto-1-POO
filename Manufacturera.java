@@ -5,9 +5,9 @@ public class Manufacturera {
 	public static int Colorante=15;
 	public static int Almidon=15;
 	
-	private static ArrayList<Dulce> Deposito_gomitas= new ArrayList<Dulce>();;
-	private static ArrayList<Dulce> Deposito_chocolate= new ArrayList<Dulce>();;
-	private static ArrayList<Dulce> Deposito_confites= new ArrayList<Dulce>();;
+	private static ArrayList<Dulce> Deposito_gomitas= new ArrayList<Dulce>();
+	private static ArrayList<Dulce> Deposito_chocolate= new ArrayList<Dulce>();
+	private static ArrayList<Dulce> Deposito_confites= new ArrayList<Dulce>();
 	
 	
 	public static void CrearDulce() {
