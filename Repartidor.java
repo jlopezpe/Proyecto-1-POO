@@ -32,4 +32,5 @@ public class Repartidor extends Empleado{
         }
         return false;
     }
+    //faltaria un metodo repartir o algo asi que lo envie a cliente
 }
