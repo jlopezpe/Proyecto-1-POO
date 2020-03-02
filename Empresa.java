@@ -1,4 +1,3 @@
-
 package Test;
 import java.util.*;
 
@@ -7,6 +6,7 @@ public class Empresa {
     public int RUT;
     public String nombre;
     public String direccion;
+    public static int capital=40000000;
     public Empresa(int NIT,int RUT,String nombre,String direccion){
         this.NIT=NIT;
         this.RUT=RUT;
@@ -14,11 +14,17 @@ public class Empresa {
         this.nombre=nombre;
     }
     
-    public void getEmpleados(){
-        for (int i = 0; i < Empleado.getId()-1; i++) {
-             //Aqui llama al metodo get empleado..no se asusten...Como está no va a dejar pero
-             //cuando se arregla el error de conversion desde ese metodo se llama es al array y se pondría el método estatico....
+    public static void getEmpleados(){//Cambiar para q los impriman una clase :)
+        
+        for(Empleado n:Empleado.listaEmpleados){
+            System.out.println(n.getId() + "     " + n.nombre + "     " + n.cargo);
         }
+        
+    }
+    
+    public void crearEmpleado(String nom,String carg){
+        
+        Empleado.listaEmpleados.add(new Empleado(nom,carg));
     }
 
     
