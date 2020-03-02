@@ -1,3 +1,6 @@
+package Test;
+import java.util.*;
+
 public class Repartidor extends Empleado{
     public static int idRepar;
     public String placa;
@@ -5,12 +8,9 @@ public class Repartidor extends Empleado{
     ArrayList<Dulce> pedido= new ArrayList<>();
     int numPedidos=pedido.size();
     
-    Repartidor(String nombre,String plac,String cargo){
-        id=idRepar;
-        this.nombre=nombre;
-        this.cargo=cargo;
-        placa=plac;
-        idRepar++;
+    Repartidor(String nombre,String cargo,String placa){
+        super(nombre,cargo);
+        this.placa=placa;
     }
     public void pedido(Dulce algo){
         if(this.disponibilidad(idRepar)==true){
@@ -32,5 +32,5 @@ public class Repartidor extends Empleado{
         }
         return false;
     }
-    //faltaria un metodo repartir o algo asi que lo envie a cliente
 }
+
