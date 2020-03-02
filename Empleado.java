@@ -26,5 +26,9 @@ public class Empleado extends Persona {
     
     public Empleado getEmpleado(int i){
         return Empleado.listaEmpleados.get(i);
-    }    
+    }
+   
+    
+    
+    
 }
