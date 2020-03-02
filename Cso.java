@@ -14,7 +14,7 @@ public class Cso extends Empleado{
 	}
 	public void despedir() {
 		int x=(int) ((Math.random() * ((Empleado.idSiguiente - 2) + 1)) + 2);
-		Empleado y=Empleado.getEmpleado(x);
-		y=null;
+		Empleado.getEmpleado(x)=null;
+		//y=null;
 	}
 }
