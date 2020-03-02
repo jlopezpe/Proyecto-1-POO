@@ -8,7 +8,11 @@ public class Empleado extends Persona {
     public static int idSiguiente=0;
     
     public static ArrayList<Empleado> listaEmpleados=new ArrayList<>();
-
+    
+    Empleado(){
+        id=idSiguiente;
+        idSiguiente++;
+    }
     Empleado(String nombre, String cargo) {
         this.nombre = nombre;
         id=idSiguiente;
@@ -19,8 +23,8 @@ public class Empleado extends Persona {
     public int getId(){
         return id;
     }
-   
     
-    
-    
+    public Empleado getEmpleado(int i){
+        return Empleado.listaEmpleados.get(i);
+    }    
 }
