@@ -1,25 +1,29 @@
 import java.util.*;
-public class Manufacturera {
+public class Manufactura {
 	
-	public static int Azucar=15;
-	public static int Colorante=15;
-	public static int Almidon=15;
+	static int Azucar=15;
+	static int Colorante=15;
+	static int Almidon=15;
 	
-	private static ArrayList<Dulce> Deposito_gomitas= new ArrayList<Dulce>();
-	private static ArrayList<Dulce> Deposito_chocolate= new ArrayList<Dulce>();
-	private static ArrayList<Dulce> Deposito_confites= new ArrayList<Dulce>();
+	private static ArrayList<Dulce> Deposito_gomitas= new ArrayList<Dulce>();;
+	private static ArrayList<Dulce> Deposito_chocolate= new ArrayList<Dulce>();;
+	private static ArrayList<Dulce> Deposito_confites= new ArrayList<Dulce>();;
 	
 	
 	public static void CrearDulce() {
 		
 		
-		
+		int i;
 		String tipo_dulce;
 		Scanner input= new Scanner(System.in);
 		
 		System.out.println("Que tipo de dulce desea?");
-		
 		tipo_dulce = input.next();
+		
+		int cantidad_dulce=input.nextInt();
+		
+		
+		
 		if(tipo_dulce.equals("chocolate")){
 			
 			System.out.println("Que chocolate quiere?"+"  "+"Escriba el número");
@@ -41,18 +45,24 @@ public class Manufacturera {
 					
 					//llamar al metodo de secretaria para que llame al proveedor
 					
-					Deposito_chocolate.add(new Dulce(a));
-					Azucar=Azucar-4;
-					Almidon=Almidon-3;
+					for(i=0;i<cantidad_dulce;i++) {
 					
+						Deposito_chocolate.add(new Dulce(a));
+						Azucar=Azucar-4;
+						Almidon=Almidon-3;
 					
+					}
+
 				}
 				else {
-				
-					Deposito_chocolate.add(new Dulce(a));
 					
-					Azucar=Azucar-4;
-					Almidon=Almidon-3;
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_chocolate.add(new Dulce(a));
+						Azucar=Azucar-4;
+						Almidon=Almidon-3;
+					
+					}
 				}
 			
 										
@@ -63,18 +73,24 @@ public class Manufacturera {
 				if(Almidon<3 || Azucar<5) {
 					
 					//llamar al metodo de secretaria para que llame al proveedor
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_chocolate.add(new Dulce(b));
+						Almidon=Almidon-2;
+						Azucar=Azucar-4;
 					
-					Deposito_chocolate.add(new Dulce(b));
-					
-					Almidon=Almidon-2;
-					Azucar=Azucar-4;
+					}
 				}
 				
 				else {
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_chocolate.add(new Dulce(b));
+						Almidon=Almidon-2;
+						Azucar=Azucar-4;
 					
-					Deposito_chocolate.add(new Dulce(b));
-					Almidon=Almidon-2;
-					Azucar=Azucar-4;
+					}
+
 				}
 			}
 			
@@ -83,18 +99,23 @@ public class Manufacturera {
 				if(Colorante<4 || Azucar<5) {
 					
 					//llamar al metodo de secretaria para que llame al proveedor
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_chocolate.add(new Dulce(c));
+						Colorante=Colorante-3;
+						Azucar=Azucar-4;
 					
-					Deposito_chocolate.add(new Dulce(c));
-					
-					Colorante=Colorante-3;
-					Azucar=Azucar-4;
+					}
 				}
 				
 				else {
-					Deposito_chocolate.add(new Dulce(c));
-				
-					Colorante=Colorante-3;
-					Azucar=Azucar-4;
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_chocolate.add(new Dulce(c));
+						Colorante=Colorante-3;
+						Azucar=Azucar-4;
+					
+					}
 				}
 			}		
 		}
@@ -119,18 +140,25 @@ public class Manufacturera {
 				if( Azucar<6 || Colorante<5) {
 					
 					//llamar al metodo de secretaria para que llame al proveedor
-					Deposito_gomitas.add(new Dulce(a));
 					
-					Azucar=Azucar-5;
-					Colorante=Colorante-4;
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_gomitas.add(new Dulce(a));
+						Colorante=Colorante-4;
+						Azucar=Azucar-5;
+				
+					}
 								
 				}
 				else {
 				
-					Deposito_gomitas.add(new Dulce(a));
-				
-					Azucar=Azucar-5;
-					Colorante=Colorante-4;
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_chocolate.add(new Dulce(a));
+						Colorante=Colorante-4;
+						Azucar=Azucar-5;
+					
+					}
 				}
 										
 			}
@@ -140,18 +168,23 @@ public class Manufacturera {
 				if(Azucar<6 || Almidon<7) {
 					
 					//llamar al metodo de secretaria para que llame al proveedor
-					Deposito_gomitas.add(new Dulce(b));
 					
-					Azucar=Azucar-5;
-					Almidon=Almidon-6;
-					
-					
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_gomitas.add(new Dulce(b));
+						Azucar=Azucar-5;
+						Almidon=Almidon-6;
+					}
 				}
+					
 				else {
-					Deposito_gomitas.add(new Dulce(b));
-				
-					Azucar=Azucar-5;
-					Almidon=Almidon-6;
+
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						Deposito_gomitas.add(new Dulce(b));
+						Azucar=Azucar-5;
+						Almidon=Almidon-6;
+					}
 				}
 			}
 			
@@ -162,19 +195,26 @@ public class Manufacturera {
 				if(Azucar<4 || Colorante<6) {
 					
 					//llamar al metodo de secretaria para que llame al proveedor
-					Deposito_gomitas.add(new Dulce(c));
 					
-					Azucar=Azucar-3;
-					Colorante=Colorante-5;
+					for(i=0;i<cantidad_dulce;i++) {
+						
 					
+						Deposito_gomitas.add(new Dulce(c));		
+						Azucar=Azucar-3;
+						Colorante=Colorante-5;
+					}
 					
 				}
 				
 				else {
-				
-					Deposito_gomitas.add(new Dulce(c));
-					Azucar=Azucar-3;
-					Colorante=Colorante-5;
+					
+					for(i=0;i<cantidad_dulce;i++) {
+						
+						
+						Deposito_gomitas.add(new Dulce(c));		
+						Azucar=Azucar-3;
+						Colorante=Colorante-5;
+					}
 				}
 			}
 		}
@@ -200,17 +240,22 @@ public class Manufacturera {
 				if(Azucar<2 || Colorante<3) {
 					
 					//llamar a secretaria para que utilice el metodo de llamar al proveedor
-					Deposito_confites.add(new Dulce(a));
-					Azucar=-1;
-					Colorante=-2;
+					
+					for(i=0;i<cantidad_dulce;i++) {
+						Deposito_confites.add(new Dulce(a));
+						Azucar=-1;
+						Colorante=-2;
+					}
 					
 					
 				}
 				else {
-					Deposito_confites.add(new Dulce(a));
+					for(i=0;i<cantidad_dulce;i++) {
+						Deposito_confites.add(new Dulce(a));
 						
-					Azucar=-1;
-					Colorante=-2;
+						Azucar=-1;
+						Colorante=-2;
+					}
 				}
 										
 			}
@@ -220,16 +265,22 @@ public class Manufacturera {
 				if(Azucar<4 || Colorante<4) {
 					
 					//llamar a secretaria para que utilice el metodo de llamar al proveedor
-					Deposito_confites.add(new Dulce(b));
-					Azucar=-3;
-					Colorante=-3;
+					
+					for(i=0;i<cantidad_dulce;i++) {
+						Deposito_confites.add(new Dulce(b));
+						Azucar=-3;
+						Colorante=-3;
+					}
 							
 				}
 				else {
+					
+					for(i=0;i<cantidad_dulce;i++) {
 				
-					Deposito_confites.add(new Dulce(b));
-					Azucar=-3;
-					Colorante=-3;
+						Deposito_confites.add(new Dulce(b));
+						Azucar=-3;
+						Colorante=-3;
+					}
 					
 				}
 			}
@@ -239,15 +290,20 @@ public class Manufacturera {
 				if(Azucar<6 || Colorante<3) {
 					
 					//llamar a secretaria para que utilice el metodo de llamar al proveedor
-					Deposito_confites.add(new Dulce(c));
-					Azucar=-5;
-					Colorante=-2;
+					
+					for(i=0;i<cantidad_dulce;i++) {
+						Deposito_confites.add(new Dulce(c));
+						Azucar=-5;
+						Colorante=-2;
+					}
 							
 				}
 				else {
-					Deposito_confites.add(new Dulce(c));
-					Azucar=-5;
-					Colorante=-2;
+					for(i=0;i<cantidad_dulce;i++) {
+						Deposito_confites.add(new Dulce(c));
+						Azucar=-5;
+						Colorante=-2;
+					}
 				}
 			}	
 		}
