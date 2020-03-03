@@ -2,7 +2,7 @@ package colorBox;
 
 public class Persona{
     public String nombre;
-    public long id;
+    private final int id;
     Persona(){}
     Persona(String name,long iden){
         nombre=name;
@@ -11,6 +11,9 @@ public class Persona{
     Persona(long ide,String name){
         nombre=name;
         id=iden;
+    }
+     public int getId(){
+        return id;
     }
 }
 
