@@ -8,7 +8,7 @@ public class Persona{
         nombre=name;
         id=iden;
     }
-    Persona(long ide,String name){
+    Persona(long iden,String name){
         nombre=name;
         id=iden;
     }
