@@ -3,7 +3,7 @@ import java.util.*;
 public class Cso extends Empleado {
 
     public int ganancias() {
-        return Empresa.capital;
+        return Empresa.capital-Empresa.costos;
     }
 
     public void asignarSueldo(Empleado emp) {
