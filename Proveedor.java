@@ -12,9 +12,9 @@ public class Proveedor extends Persona {
 	
 	public void Suministrar() {
 		
-		Manufacturera.Azucar=+50;
-		Manufacturera.Colorante=+50;
-		Manufacturera.Almidon=+50;
+		Manufacturera.Azucar=+80;
+		Manufacturera.Colorante=+80;
+		Manufacturera.Almidon=+80;
 		Empresa.capital=-5000;
 		Empresa.costos+=5000;
 		
