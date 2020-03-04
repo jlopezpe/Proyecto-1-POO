@@ -149,26 +149,25 @@ public class Secretaria {
 	public  void borrarDulces(String dulce, int cantidad) {
 		if (dulce.equals("chocolate")) {
 			for(int j=0;j<cantidad;j++) {
-				pedidoSec.add(Deposito_chocolate[j]);
+				pedidoSec.add(Manufacturera.Deposito_chocolate[j]);
 				Manufacturera.Deposito_chocolate.remove(j);
 			}
 		}
 		if (dulce.equals("gomitas")) {
 			String marca=dulce.getMarca();
 			for(int j=0;j<cantidad;j++) {
-				pedidoSec.add(Deposito_gomitas[j]);
+				pedidoSec.add(Manufacturera.Deposito_gomitas[j]);
 				Manufacturera.Deposito_gomitas.remove(j);
 			}
 		}
 		if (dulce.equals("caramelos")) {
 			for(int j=0;j<cantidad;j++) {
-				pedidoSec.add(Deposito_caramelos[j]);
+				pedidoSec.add(Manufacturera.Deposito_caramelos[j]);
 				Manufacturera.Deposito_caramelos.remove(j);
 			}
 		}
 		Repartidor.pedido=pedidoSec;
 		pedidoSec=null;
-		
 	}
 			
 				
