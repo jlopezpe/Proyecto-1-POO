@@ -23,7 +23,7 @@ public class Secretaria {
 			
 			if(tipo_dulce.equals("chocolate")){
 				
-				System.out.println("Que chocolate quiere?"+"  "+"Escriba el número");
+				System.out.println("Que chocolate quiere?"+"  "+"Escriba el nÃºmero");
 				
 				String a="Kitkat";
 				String b="Crunch";
@@ -102,7 +102,7 @@ public class Secretaria {
 			
 			if(tipo_dulce.equals("gomitas")){
 				
-				System.out.println("Que gomitas quiere?"+"  "+"Escriba el número");
+				System.out.println("Que gomitas quiere?"+"  "+"Escriba el nÃºmero");
 				
 				String a="Haribo";
 				String b="Trululu";
@@ -175,7 +175,7 @@ public class Secretaria {
 			
 			if(tipo_dulce.equals("confites")){
 				
-				System.out.println("Que confites quiere?"+"  "+"Escriba el número");
+				System.out.println("Que confites quiere?"+"  "+"Escriba el nÃºmero");
 					
 				String a="Smarties";
 				String b="Nikolo";
@@ -248,7 +248,19 @@ public class Secretaria {
 				
 				
 			}
+			System.out.println("Desea algo mas?");
+			String decision_final=input.next();
 			
+			if(decision_final.equals("si")){
+				
+				decision="no";
+			}
+			
+			if(decision_final.equals("no")) {
+				
+				
+				decision="si";
+			}
 			
 			
 			
@@ -261,9 +273,9 @@ public class Secretaria {
 		if(tipo_dulce.equals("chocolate")){
 			
 		    ArrayList<Dulce> deposito=m.Deposito_chocolate;
-			int tamaño_deposito=deposito.size();
+			int tamaÃ±o_deposito=deposito.size();
 			
-			if(tamaño_deposito<cantidad_dulces) {
+			if(tamaÃ±o_deposito<cantidad_dulces) {
 				
 				return false;	
 				
@@ -276,9 +288,9 @@ public class Secretaria {
 		if(tipo_dulce.equals("gomitas")){
 			
 		    ArrayList<Dulce> deposito=m.Deposito_gomitas;
-			int tamaño_deposito=deposito.size();
+			int tamaÃ±o_deposito=deposito.size();
 			
-			if(tamaño_deposito<cantidad_dulces) {
+			if(tamaÃ±o_deposito<cantidad_dulces) {
 				
 				return false;	
 				
@@ -292,9 +304,9 @@ public class Secretaria {
 		if(tipo_dulce.equals("confites")){
 			
 		    ArrayList<Dulce> deposito=m.Deposito_confites;
-			int tamaño_deposito=deposito.size();
+			int tamaÃ±o_deposito=deposito.size();
 			
-			if(tamaño_deposito<cantidad_dulces) {
+			if(tamaÃ±o_deposito<cantidad_dulces) {
 				
 				return false;	
 				
