@@ -3,13 +3,12 @@ package colorBox;
 public class Persona{
     public String nombre;
     private final int id;
-    Persona(){}
-    Persona(String name,long iden){
-        nombre=name;
+    Persona(String name,int iden){
+		nombre=name;
         id=iden;
     }
-    Persona(long iden,String name){
-        nombre=name;
+    Persona(int iden,String name){
+		nombre=name;
         id=iden;
     }
      public int getId(){
