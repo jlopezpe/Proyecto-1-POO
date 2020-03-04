@@ -15,8 +15,8 @@ public class Proveedor extends Persona {
 		Manufacturera.Azucar=+80;
 		Manufacturera.Colorante=+80;
 		Manufacturera.Almidon=+80;
-		Empresa.capital=-5000;
-		Empresa.costos+=5000;
+		Empresa.capital=-200000;
+		Empresa.costos+=2000000;
 		
 		
 	}
