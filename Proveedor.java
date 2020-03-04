@@ -4,8 +4,8 @@ public class Proveedor extends Persona {
 	int sueldo;
 	
 	
-	Proveedor(int sueldo,String nombre){
-		
+	Proveedor(int sueldo,String nombre,int id){
+		super(nombre,id);
 		this.sueldo=sueldo;
 		this.nombre=nombre;
 	}
