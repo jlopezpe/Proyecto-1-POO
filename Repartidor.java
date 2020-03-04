@@ -22,7 +22,7 @@ public void Repartir(Cliente a) {
 
     public boolean disponibilidad(){
         if(numPedidos!=0){
-            System.out.println("no hay Repartidores disponibles, por favor intentelo más tarde");
+            //System.out.println("no hay Repartidores disponibles, por favor intentelo más tarde");
             return false;
         }
         else{
