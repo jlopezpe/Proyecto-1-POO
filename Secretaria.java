@@ -1,7 +1,7 @@
 import java.util.*;
 public class Secretaria {
 	
-	ArrayList<Dulce> pedido=new ArrayList<>();
+	ArrayList<Dulce> pedidoSec=new ArrayList<>();
 	
 	
 	
@@ -35,7 +35,7 @@ public class Secretaria {
 			
 				else {
 						
-						//ejecutar el metodo para que coja los dulces de los depositos 
+						borrarDulces();//ejecutar el metodo para que coja los dulces de los depositos 
 						
 						
 				}
