@@ -146,7 +146,7 @@ public class Secretaria {
 		p.Suministrar();
 	}
 	
-	public static void borrarDulces(String dulce, int cantidad) {
+	public  void borrarDulces(String dulce, int cantidad) {
 		if (dulce.equals("chocolate")) {
 			for(int j=0;j<cantidad;j++) {
 				pedidoSec.add(Deposito_chocolate[j]);
