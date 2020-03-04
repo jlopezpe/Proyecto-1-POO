@@ -16,17 +16,13 @@ public class Secretaria {
 			
 			System.out.println("- Chocolate");
 			System.out.println("- Gomitas");
-			System.out.println("- Confites");
+			System.out.println("- Caramelos");
 	
 			String tipo_dulce=input.next();
-			
+			System.out.println("¿Cuántos desea?");
+			int cantidad_dulces=input.nextInt();
 			
 			if(tipo_dulce.equals("chocolate")){
-				
-				System.out.println("Cuantos quiere?");
-					
-				int cantidad_dulces=input.nextInt();
-			
 				if(Secretaria.verificarStock(tipo_dulce,cantidad_dulces)==false) {
 						
 						Manufactura.CrearDulce();
@@ -35,7 +31,7 @@ public class Secretaria {
 			
 				else {
 						
-						borrarDulces();//ejecutar el metodo para que coja los dulces de los depositos 
+						borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
 						
 						
 				}
@@ -43,11 +39,6 @@ public class Secretaria {
 			
 			
 			if(tipo_dulce.equals("gomitas")){
-				
-				System.out.println("Cuantos quiere?");
-				
-					
-				int cantidad_dulces=input.nextInt();
 					
 				if(Secretaria.verificarStock(tipo_dulce,cantidad_dulces)==false) {
 						
@@ -57,19 +48,14 @@ public class Secretaria {
 				}
 				else {
 						
-						//ejecutar el metodo para que coja los dulces de los depositos 
+						borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
 						
 						
 				}
 								
 			}
 			
-			if(tipo_dulce.equals("confites")){
-				
-				System.out.println("Cuantos quiere?");
-					
-				int cantidad_confite=input.nextInt();
-					
+			if(tipo_dulce.equals("caramelos")){
 				if(Secretaria.verificarStock(tipo_dulce,cantidad_confite)==false) {
 						
 						Manufactura.CrearDulce();
@@ -78,7 +64,7 @@ public class Secretaria {
 				}
 				else {
 						
-						//ejecutar el metodo para que coja los dulces de los depositos 
+						borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
 						
 						
 				}
@@ -89,7 +75,7 @@ public class Secretaria {
 				
 			}
 			
-			System.out.println("Desea algo mas?");
+			System.out.println("¿Desea algo mas?");
 			String decision_final=input.next();
 			
 			if(decision_final.equals("si")){
@@ -137,7 +123,7 @@ public class Secretaria {
 							
 		}
 		
-		if(tipo_dulce.equals("confites")){
+		if(tipo_dulce.equals("caramelos")){
 			
 		    ArrayList<Dulce> deposito=Manufactura.Deposito_confites;
 			int tamaño_deposito=deposito.size();
@@ -157,8 +143,6 @@ public class Secretaria {
 	}
 	
 	private void llamarProveedor(Proveedor p) {
-		
-		
 		p.Suministrar();
 	}
 	
