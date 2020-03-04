@@ -109,9 +109,9 @@ public class Secretaria {
 		if(tipo_dulce.equals("chocolate")){
 			
 		    ArrayList<Dulce> deposito=Manufactura.Deposito_chocolate;
-			int tamaño_deposito=deposito.size();
+			int tamaÃ±o_deposito=deposito.size();
 			
-			if(tamaño_deposito<cantidad_dulces) {
+			if(tamaÃ±o_deposito<cantidad_dulces) {
 				
 				return false;	
 				
@@ -124,9 +124,9 @@ public class Secretaria {
 		if(tipo_dulce.equals("gomitas")){
 			
 		    ArrayList<Dulce> deposito=Manufactura.Deposito_gomitas;
-			int tamaño_deposito=deposito.size();
+			int tamaÃ±o_deposito=deposito.size();
 			
-			if(tamaño_deposito<cantidad_dulces) {
+			if(tamaÃ±o_deposito<cantidad_dulces) {
 				
 				return false;	
 				
@@ -140,9 +140,9 @@ public class Secretaria {
 		if(tipo_dulce.equals("confites")){
 			
 		    ArrayList<Dulce> deposito=Manufactura.Deposito_confites;
-			int tamaño_deposito=deposito.size();
+			int tamaÃ±o_deposito=deposito.size();
 			
-			if(tamaño_deposito<cantidad_dulces) {
+			if(tamaÃ±o_deposito<cantidad_dulces) {
 				
 				return false;	
 				
@@ -162,6 +162,31 @@ public class Secretaria {
 		p.Suministrar();
 	}
 	
-	
+	public static void borrarDulces(Dulce dulce, int cantidad) {
+		if (dulce.getTipo().equals("chocolate")) {
+			String marca=dulce.getMarca();
+			for(int j=0;j<cantidad;j++) {
+				pedidoSec.add(j);
+				Manufacturera.Deposito_chocolate.remove(j);
+			}
+		}
+		if (dulce.getTipo().equals("gomitas")) {
+			String marca=dulce.getMarca();
+			for(int j=0;j<cantidad;j++) {
+				pedidoSec.add(j);
+				Manufacturera.Deposito_gomitas.remove(j);
+			}
+		}
+		if (dulce.getTipo().equals("confites")) {
+			String marca=dulce.getMarca();
+			for(int j=0;j<cantidad;j++) {
+				pedidoSec.add(dulce[j]);
+				Manufacturera.Deposito_confites.remove(j);
+			}
+		}
+		Repartidor.pedido=pedidoSec;
+		pedidoSec=null;
+		
+	}
 				
 }
