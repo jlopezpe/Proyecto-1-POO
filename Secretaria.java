@@ -10,7 +10,7 @@ public class Secretaria {
 		Scanner input=new Scanner (System.in);
 		String decision="no";
 		
-		while(!decision.equals("no")) {
+		while(!decision.equals("si")) {
 		
 			System.out.println("Hola, que desea?");
 			
