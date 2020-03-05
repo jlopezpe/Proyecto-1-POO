@@ -10,7 +10,7 @@ public class Proveedor extends Persona {
 		this.nombre=nombre;
 	}
 	
-	public void Suministrar() {
+	public static void Suministrar() {
 		
 		Manufactura.Azucar=+80;
 		Manufactura.Colorante=+80;
