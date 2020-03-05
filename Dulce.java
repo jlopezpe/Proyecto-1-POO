@@ -1,5 +1,5 @@
 public class Dulce {
-	String nombre;
+	public String nombre;
 	
 	public Dulce(String nombre) {
 		
