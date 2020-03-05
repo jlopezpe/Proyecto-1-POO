@@ -1,35 +1,17 @@
-package Test;
-
 import java.util.*;
 
 public class Secretaria {
 
-    ArrayList<Dulce> pedidoSec = new ArrayList<>();
+    static ArrayList<Dulce> pedidoSec = new ArrayList<>();
 
-    public void tomarPedido() {
-
-        Scanner input = new Scanner(System.in);
-        String decision = "no";
-
-        while (!decision.equals("si")) {
-
-            System.out.println("Hola, que desea?");
-
-            System.out.println("- Chocolate");
-            System.out.println("- Gomitas");
-            System.out.println("- Confites");
-
-            String tipo_dulce = input.next();
+    public static void tomarPedido(String tipo_dulce,int cantidad_dulces) {
 
             if (tipo_dulce.equals("chocolate")) {
 
-                System.out.println("Cuantos quiere?");
-
-                int cantidad_dulces = input.nextInt();
-
-                if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
+                if (verificarStock(tipo_dulce, cantidad_dulces) == false) {
 
                     Manufactura.CrearDulce();
+                    borrarDulces(tipo_dulce,cantidad_dulces);
 
                 } else {
 
@@ -39,110 +21,81 @@ public class Secretaria {
             }
 
             if (tipo_dulce.equals("gomitas")) {
-
-                System.out.println("Cuantos quiere?");
-
-                int cantidad_dulces = input.nextInt();
-
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
-
                     Manufactura.CrearDulce();
+                    borrarDulces(tipo_dulce,cantidad_dulces);
 
                 } else {
 
-                    //ejecutar el metodo para que coja los dulces de los depositos 
+                	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                 }
 
             }
 
             if (tipo_dulce.equals("confites")) {
 
-                System.out.println("Cuantos quiere?");
-
-                int cantidad_confite = input.nextInt();
-
-                if (Secretaria.verificarStock(tipo_dulce, cantidad_confite) == false) {
+                if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
 
                     Manufactura.CrearDulce();
+                    borrarDulces(tipo_dulce,cantidad_dulces);
 
                 } else {
 
-                    //ejecutar el metodo para que coja los dulces de los depositos 
+                	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                 }
 
             }
 
         }
 
-        System.out.println("Desea algo mas?");
-        String decision_final = input.next();
-
-        if (decision_final.equals("si")) {
-
-            decision = "no";
-        }
-
-        if (decision_final.equals("no")) {
-
-            decision = "si";
-        }
-    }
-
     private static boolean verificarStock(String tipo_dulce, int cantidad_dulces) {
-
+    	boolean x=false;
         if (tipo_dulce.equals("chocolate")) {
-
-            ArrayList<Dulce> deposito = Manufactura.Deposito_chocolate;
-            int tamaño_deposito = deposito.size();
+            int tamaño_deposito = Manufactura.Deposito_chocolate.size();
 
             if (tamaño_deposito < cantidad_dulces) {
 
-                return false;
+                x= false;
 
             } else {
-                return true;
+            	x=true;
             }
         }
 
-        if (tipo_dulce.equals("gomitas")) {
-
-            ArrayList<Dulce> deposito = Manufactura.Deposito_gomitas;
-            int tamaño_deposito = deposito.size();
+        else if (tipo_dulce.equals("gomitas")) {
+            int tamaño_deposito = Manufactura.Deposito_gomitas.size();
 
             if (tamaño_deposito < cantidad_dulces) {
 
-                return false;
+            	 x= false;
 
             } else {
-                return true;
+            	x=true;
             }
 
         }
 
-        if (tipo_dulce.equals("confites")) {
-
-            ArrayList<Dulce> deposito = Manufactura.Deposito_caramelos;
-            int tamaño_deposito = deposito.size();
+        else if (tipo_dulce.equals("confites")) {
+            int tamaño_deposito = Manufactura.Deposito_caramelos.size();
 
             if (tamaño_deposito < cantidad_dulces) {
 
-                return false;
+            	 x= false;
 
             } else {
-                return true;
+                x=true;
             }
 
         }
-        return true;
-
+        return x;
     }
 
-    private void llamarProveedor(Proveedor p) {
+    public static void llamarProveedor() {
 
-        p.Suministrar();
+        Proveedor.Suministrar();
     }
 
-    public void borrarDulces(String dulce, int cantidad) {
+    public  static void borrarDulces(String dulce, int cantidad) {
         if (dulce.equals("chocolate")) {
             for (int j = 0; j < cantidad; j++) {
                 pedidoSec.add(Manufactura.Deposito_chocolate.get(j));
@@ -163,8 +116,7 @@ public class Secretaria {
             }
         }
         Repartidor.pedido = pedidoSec;
-        pedidoSec = null;
-
+        pedidoSec.clear();
+        
     }
 }
-
