@@ -3,9 +3,9 @@ import java.util.*;
 public class Secretaria {
 
     static ArrayList<Dulce> pedidoSec = new ArrayList<>();
-
+    public String tipo;
     public static void tomarPedido(String tipo_dulce,int cantidad_dulces) {
-
+        tipo=tipo_dulce;
             if (tipo_dulce.equals("chocolate")) {
 
                 if (verificarStock(tipo_dulce, cantidad_dulces) == false) {
