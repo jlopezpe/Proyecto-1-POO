@@ -15,9 +15,11 @@ public class Factura {
         }else if(tipo.equals("confites")){
             precio+=200*Dulce.cantidad;
         }
+        
         return precio;
     }
     public String generarFactura(){
+        if(
         
     }
 }
