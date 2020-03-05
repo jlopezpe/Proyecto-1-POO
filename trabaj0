@@ -1,20 +1,16 @@
 package colorBox;
 
 public class Persona{
-    public String nombre;
-    private final int id;
-    Persona(String name,int iden){
-		nombre=name;
-        id=iden;
-    }
-    Persona(int iden,String name){
-		nombre=name;
-        id=iden;
-    }
-     public int getId(){
-        return id;
+    private String nombre;
+     public Persona(String nombre2) {
+		nombre=nombre2;
+	}
+
+	public String getNombre(){
+        return nombre;
     }
 }
+
 
 public class Empleado extends Persona{
 	public int sueldo,empleadoNum,horas;
