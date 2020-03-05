@@ -27,7 +27,7 @@ public class Manufactura {
 				Azucar=-7;
 				Almidon=-3;
 				Deposito_caramelos.add(new Dulce("gomitas"));
-				Colorante=-5;
+				Colorante=-4;
 				Azucar=-7;
 				Almidon=-3;
 				
@@ -62,15 +62,15 @@ public class Manufactura {
 					Azucar=-7;
 					Almidon=-3;
 				}
-				if(Colorante>5 && Azucar>7 && Almidon>3) {
+				if(Colorante>4 && Azucar>7 && Almidon>3) {
 					Deposito_caramelos.add(new Dulce("gomitas"));
-					Colorante=-5;
+					Colorante=-4;
 					Azucar=-7;
 					Almidon=-3;
 				}
 				else {
 					Secretaria.llamarProveedor(proveedor);
-					Colorante=-5;
+					Colorante=-4;
 					Azucar=-7;
 					Almidon=-3;
 				}
