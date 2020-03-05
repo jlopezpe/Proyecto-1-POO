@@ -19,14 +19,14 @@ public class Manufactura {
 			Secretaria.llamarProveedor();
 			for(i=0;i<80;i++) {
 				
-				Deposito_caramelos.add(new Dulce("chocolate"));
+				Deposito_chocolate.add(new Dulce("chocolate"));
 				Azucar=-6;
 				Almidon=-4;
 				Deposito_caramelos.add(new Dulce("caramelo"));
 				Colorante=-5;
 				Azucar=-7;
 				Almidon=-3;
-				Deposito_caramelos.add(new Dulce("gomitas"));
+				Deposito_gomitas.add(new Dulce("gomitas"));
 				Colorante=-4;
 				Azucar=-7;
 				Almidon=-3;
@@ -39,13 +39,13 @@ public class Manufactura {
 			for(i=0;i<80;i++) {
 				
 				if(Azucar>6 && Almidon>4) {
-					Deposito_caramelos.add(new Dulce("chocolate"));
+					Deposito_chocolate.add(new Dulce("chocolate"));
 					Azucar=-6;
 					Almidon=-4;
 				}
 				else {
 					Secretaria.llamarProveedor();
-					Deposito_caramelos.add(new Dulce("chocolate"));
+					Deposito_chocolate.add(new Dulce("chocolate"));
 					Azucar=-6;
 					Almidon=-4;
 				}
@@ -63,13 +63,14 @@ public class Manufactura {
 					Almidon=-3;
 				}
 				if(Colorante>4 && Azucar>7 && Almidon>3) {
-					Deposito_caramelos.add(new Dulce("gomitas"));
+					Deposito_gomitas.add(new Dulce("gomitas"));
 					Colorante=-4;
 					Azucar=-7;
 					Almidon=-3;
 				}
 				else {
 					Secretaria.llamarProveedor();
+					Deposito_gomitas.add(new Dulce("gomitas"));
 					Colorante=-4;
 					Azucar=-7;
 					Almidon=-3;
