@@ -1,9 +1,9 @@
 import java.util.*;
 public class Manufactura {
 	
-	static int Azucar=100;
-	static int Colorante=100;
-	static int Almidon=100;
+	public static int Azucar=100;
+	public static int Colorante=100;
+	public static int Almidon=100;
 	
 	public static ArrayList<Dulce> Deposito_caramelos= new ArrayList<Dulce>();;
 	public static ArrayList<Dulce> Deposito_chocolate= new ArrayList<Dulce>();;
