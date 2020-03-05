@@ -1,6 +1,6 @@
 package colorBox;
 import java.util.*;
-public class hacerPedido {
+public class hacerPedido extends OpcioDeMenu {
 	Scanner input = new Scanner(System.in);
 	public  void ejecutar() {
 		System.out.println("Bienvenido(a), para hacer su pedido por favor elija el tipo de dulce");
