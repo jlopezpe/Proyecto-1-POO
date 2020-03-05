@@ -16,7 +16,7 @@ public class Manufactura {
 			
 			int i;
 			
-			Secretaria.llamarProveedor(proveedor);
+			Secretaria.llamarProveedor();
 			for(i=0;i<80;i++) {
 				
 				Deposito_caramelos.add(new Dulce("chocolate"));
@@ -44,7 +44,7 @@ public class Manufactura {
 					Almidon=-4;
 				}
 				else {
-					Secretaria.llamarProveedor(proveedor);
+					Secretaria.llamarProveedor();
 					Deposito_caramelos.add(new Dulce("chocolate"));
 					Azucar=-6;
 					Almidon=-4;
@@ -56,7 +56,7 @@ public class Manufactura {
 					Almidon=-3;
 				}
 				else {
-					Secretaria.llamarProveedor(proveedor);
+					Secretaria.llamarProveedor();
 					Deposito_caramelos.add(new Dulce("caramelo"));
 					Colorante=-5;
 					Azucar=-7;
@@ -69,7 +69,7 @@ public class Manufactura {
 					Almidon=-3;
 				}
 				else {
-					Secretaria.llamarProveedor(proveedor);
+					Secretaria.llamarProveedor();
 					Colorante=-4;
 					Azucar=-7;
 					Almidon=-3;
