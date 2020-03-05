@@ -2,24 +2,32 @@
 package Test;
 
 
-public class Factura {
-    String tipo=Manufacturera.tipo_dulce;
-    
-    public String codigo;
-    public int generarCosto(String tipo){
-        int precio=0;
+
+
+public class Factura{
+	public String tipo_dulce;
+	private int cantidad;
+	private int precio;
+	private int precio_total=0;
+	public Factura(String tipo,int cantidad,int precio) {
+		tipo_dulce=tipo;
+		cantidad=cantidad;
+		this.precio=precio;
+	}
+    public void generarCosto(String tipo,int cantidad, Cliente cliente){
+        int precio1=0;
         if(tipo.equals("chocolate")){
-            precio+=2000*Dulce.cantidad;
+            precio1+=2000*cantidad;
         }else if(tipo.equals("gomitas")){
-            precio+=300*Dulce.cantidad;
+            precio1+=300*cantidad;
         }else if(tipo.equals("confites")){
-            precio+=200*Dulce.cantidad;
+            precio1+=200*cantidad;
         }
-        
-        return precio;
+        precio_total+=precio1;
+        generarFactura(tipo,cantidad,cliente,precio1);
     }
-    public String generarFactura(){
-        if(
-        
-    }
+    public void generarFactura(String tipo, int dulce, Cliente cliente, int precio){
+    	cliente.miFactura.add(new Factura(tipo,cantidad,precio,precio_total));
+    	}
+		
 }
