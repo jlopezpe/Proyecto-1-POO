@@ -32,7 +32,7 @@ public class Secretaria {
 
             }
 
-            if (tipo_dulce.equals("confites")) {
+            if (tipo_dulce.equals("caramelo")) {
 
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
 
@@ -75,7 +75,7 @@ public class Secretaria {
 
         }
 
-        else if (tipo_dulce.equals("confites")) {
+        else if (tipo_dulce.equals("caramelo")) {
             int tamaño_deposito = Manufactura.Deposito_caramelos.size();
 
             if (tamaño_deposito < cantidad_dulces) {
@@ -109,7 +109,7 @@ public class Secretaria {
                 Manufactura.Deposito_gomitas.remove(j);
             }
         }
-        if (dulce.equals("caramelos")) {
+        if (dulce.equals("caramelo")) {
             for (int j = 0; j < cantidad; j++) {
                 pedidoSec.add(Manufactura.Deposito_caramelos.get(j));
                 Manufactura.Deposito_caramelos.remove(j);
