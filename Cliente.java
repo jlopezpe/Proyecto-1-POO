@@ -4,7 +4,7 @@ public class Cliente extends Persona{
 	long cel;
 	String Direccion;
 	
-	public void hacerPedido() {
+	public void hacerPedido(String tipo_dulce,int cantidad_dulce) {
 		
 		
 		
