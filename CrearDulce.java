@@ -1,4 +1,4 @@
-package colorBox;
+package UiMain;
 import java.util.*;
 public class CrearDulce extends OpcionDeMenu{
   public void ejecutar(){
