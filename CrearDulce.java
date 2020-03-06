@@ -1,5 +1,5 @@
 public class CrearDulce extends OpcionDeMenu{
-  public void ejecutar(){ 
+  public void ejecutar(){  
     if (Secretaria.tipo.equals("chocolate"){
     System.out.println("Usted acaba de crear 80 unidades de chocolate);
     }
