@@ -1,4 +1,8 @@
+package Personas;
+
 import java.util.*;
+
+import Procesos.Dulce;
 public class Repartidor extends Empleado{
 
     public static int idRepar;
@@ -8,7 +12,7 @@ public class Repartidor extends Empleado{
     int numPedidos=pedido.size();
     public int puntosTrabajo;
     
- Repartidor(String nombre,String cargo,String placa){
+ public Repartidor(String nombre,String cargo,String placa){
         super(nombre,cargo);
         this.placa=placa;
     }
