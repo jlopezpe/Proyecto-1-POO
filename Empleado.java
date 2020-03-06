@@ -15,6 +15,13 @@ public class Empleado extends Persona {
         id=idSiguiente;
         idSiguiente++;
     }
+    Empleado(String nombre, int sueldo){
+        this.nombre = nombre;
+        this.sueldo=sueldo;
+        id=idSiguiente;
+        listaEmpleados.add(this);
+        idSiguiente++;
+    }
     Empleado(String nombre, String cargo) {
         this.nombre = nombre;
         id=idSiguiente;
