@@ -19,12 +19,12 @@ public class Cso extends Empleado {
         int x=(int) ((Math.random() * ((Empleado.idSiguiente - 2) + 1)) + 2);
         Empleado.listaEmpleados.remove(x);
     }
-      public String repartidorMes(Repartidor a,Repartidor b) {
+     public static String repartidorMes(Repartidor a,Repartidor b) {
 	  if(a.puntosTrabajo==b.puntosTrabajo) {
 		  return "Los dos han trabajado por igual,nadie recibe aumento";
 	  }
 	  else if(a.puntosTrabajo>b.puntosTrabajo) {
-		  if(checkUp(a)) {
+		  if(checkUp()) {
 			  a.sueldo+=100000;
 			  return "El repartidor: "+a.nombre+"ha recibido un aumento";
 		  }
@@ -33,7 +33,7 @@ public class Cso extends Empleado {
 		  }
 	  }
 	  else if(b.puntosTrabajo>a.puntosTrabajo) {
-		  if(checkUp(b)) {
+		  if(checkUp()) {
 			  b.sueldo+=100000;
 			  return "El repartidor: "+b.nombre+"ha recibido un aumento";
 		  }
@@ -43,7 +43,7 @@ public class Cso extends Empleado {
 	  }
 	  return "fin";
   }
-  public boolean checkUp(Repartidor a) {
+  public static boolean checkUp() {
 	  if(Empresa.capital>15000000) {
 		  return true;
 	  }
