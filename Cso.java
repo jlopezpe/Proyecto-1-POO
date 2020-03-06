@@ -3,7 +3,20 @@ import java.util.*;
 public class Cso extends Empleado {
 
     public int ganancias() {
-        return Empresa.capital-Empresa.costos;
+    	
+    	int resultado=Empresa.ventas-Empresa.costos;
+    	
+    	if(resultado<0) {
+    		
+    		System.out.println("La empresa se está arruinando");
+    		return resultado;
+    	}
+    	else {
+    		
+    		System.out.println("La empresa está en buen camino. Las ganancias son positivas");
+    		return Empresa.ventas-Empresa.costos;
+    	}
+    	
     }
 
     public void asignarSueldo(Empleado emp) {
