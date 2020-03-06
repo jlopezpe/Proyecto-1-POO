@@ -2,7 +2,7 @@ package colorBox;
 
 import java.util.Scanner;
 
-public class hacerPedido1  {
+public class hacerPedido  {
 	
 	public  void ejecutar() {
 		
