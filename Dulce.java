@@ -1,4 +1,4 @@
-package colorBox;
+package Procesos;
 public class Dulce {
 	public String nombre;
 	
