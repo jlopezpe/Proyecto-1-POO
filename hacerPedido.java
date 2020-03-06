@@ -1,7 +1,7 @@
-package colorBox;
-
+package UiMain;
 import java.util.Scanner;
 
+import Personas.Cliente;
 public class hacerPedido extends OpcionDeMenu {
 	
 	public  void ejecutar() {
