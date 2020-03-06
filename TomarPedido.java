@@ -2,7 +2,7 @@ package colorBox;
 
 import java.util.Scanner;
 
-public class hacerPedido  {
+public class hacerPedido extends OpcionDeMenu {
 	
 	public  void ejecutar() {
 		
