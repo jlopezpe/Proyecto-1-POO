@@ -66,4 +66,17 @@ public class Cso extends Empleado {
 		  return false;
 	  }
   }
+	 public String mayorVenta() {
+	  String mensaje="";
+	  if(ventaChocolate>ventaGomitas && ventaChocolate>ventaCaramelos) {
+		  mensaje="Chocolate con "+ventaChocolate+" unidades";
+	  }
+	  else if(ventaGomitas>ventaChocolate && ventaGomitas>ventaCaramelos) {
+		  mensaje="Gomitas con "+ventaGomitas+" unidades";
+	  }
+	  else if(ventaCaramelos>ventaChocolate && ventaCaramelos>ventaGomitas) {
+		  mensaje="Caramelos con "+ventaCaramelos+" unidades";
+	  }
+		 return mensaje;
+  }
 }
