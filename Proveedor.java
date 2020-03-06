@@ -1,3 +1,7 @@
+package Personas;
+import Procesos.Empresa;
+import Procesos.Manufactura;
+
 public class Proveedor extends Persona {
 	Proveedor(String nombre){
 		super(nombre);
