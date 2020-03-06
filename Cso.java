@@ -19,7 +19,9 @@ public class Cso extends Empleado {
         int x=(int) ((Math.random() * ((Empleado.idSiguiente - 2) + 1)) + 2);
         Empleado.listaEmpleados.remove(x);
     }
-     public static String repartidorMes(Repartidor a,Repartidor b) {
+     public static String repartidorMes() {
+	 Repartidor a=(Repartidor) Empleado.getEmpleado(3);
+	 Repartidor b=(Repartidor) Empleado.getEmpleado(4);
 	  if(a.puntosTrabajo==b.puntosTrabajo) {
 		  return "Los dos han trabajado por igual,nadie recibe aumento";
 	  }
