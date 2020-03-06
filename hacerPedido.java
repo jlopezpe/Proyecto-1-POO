@@ -28,7 +28,7 @@ public class hacerPedido extends OpcionDeMenu {
 			System.out.println("Para hacer su pedido por favor elija el tipo de dulce");
 			System.out.println("- chocolate");
         		System.out.println("- gomitas");
-        		System.out.println("- caramelos");
+        		System.out.println("- caramelo");
         		String tipo_dulce = input.next();
         		System.out.println("Digite la cantidad de "+tipo_dulce+"que desea");
         		int cantidad_dulce=input.nextInt();
