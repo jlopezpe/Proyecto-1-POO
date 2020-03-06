@@ -8,11 +8,12 @@ public class Secretaria {
                     Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
+                     Cso.ventaChocolate+=cantidad_dulces;
 
                 } else {
-
-                        borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
-                        factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
+                    borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
+                        factura.generarCosto(tipo_dulce,cantidad_dulces,cliente); Cso.ventaChocolate+=cantidad_dulces;
+                        Cso.ventaChocolate+=cantidad_dulces;
                 }
             }
 
@@ -21,9 +22,11 @@ public class Secretaria {
                     Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
+                     Cso.ventaGomitas+=cantidad_dulces;
                 } else {
                     borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
+                    Cso.ventaGomitas+=cantidad_dulces;
                 }
 
             }
@@ -32,11 +35,12 @@ public class Secretaria {
                     Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
-
+                    Cso.ventaCaramelos+=cantidad_dulces;
                 } else {
 
                 	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
+                    Cso.ventaCaramelos+=cantidad_dulces;
                 }
 
             }
