@@ -1,13 +1,10 @@
-package Personas;
-
 import java.util.*;
-
-import Procesos.*;
 public class Secretaria {
     static ArrayList<Dulce> pedidoSec = new ArrayList<>();
     public static void tomarPedido(String tipo_dulce,int cantidad_dulces, Cliente cliente) {
-        Factura factura=new Factura();
+    	
             if (tipo_dulce.equals("chocolate")) {
+            	Factura factura=new Factura(tipo_dulce,cantidad_dulces,2000);
                 if (verificarStock(tipo_dulce, cantidad_dulces) == false) {
                     Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
@@ -16,6 +13,7 @@ public class Secretaria {
                     Empresa.ventas=+cantidad_dulces*2000;
 
                 } else {
+                	
                     borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                         factura.generarCosto(tipo_dulce,cantidad_dulces,cliente); Cso.ventaChocolate+=cantidad_dulces;
                         Cso.ventaChocolate+=cantidad_dulces;
@@ -24,6 +22,7 @@ public class Secretaria {
             }
 
             if (tipo_dulce.equals("gomitas")) {
+            	Factura factura=new Factura(tipo_dulce,cantidad_dulces,300);
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
                     Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
@@ -31,6 +30,7 @@ public class Secretaria {
                      Cso.ventaGomitas+=cantidad_dulces;
                     Empresa.ventas=+cantidad_dulces*300;
                 } else {
+                	
                     borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                     Cso.ventaGomitas+=cantidad_dulces;
@@ -39,6 +39,7 @@ public class Secretaria {
 
             }
             if (tipo_dulce.equals("caramelo")) {
+            	Factura factura=new Factura(tipo_dulce,cantidad_dulces,200);
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
                     Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
@@ -46,6 +47,7 @@ public class Secretaria {
                     Cso.ventaCaramelos+=cantidad_dulces;
                     Empresa.ventas=+cantidad_dulces*200;
                 } else {
+                	
 
                 	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
@@ -60,9 +62,9 @@ public class Secretaria {
     private static boolean verificarStock(String tipo_dulce, int cantidad_dulces) {
     	boolean x=false;
         if (tipo_dulce.equals("chocolate")) {
-            int tamaÃ±o_deposito = Manufactura.Deposito_chocolate.size();
+            int tamaño_deposito = Manufactura.Deposito_chocolate.size();
 
-            if (tamaÃ±o_deposito < cantidad_dulces) {
+            if (tamaño_deposito < cantidad_dulces) {
 
                 x= false;
 
@@ -72,9 +74,9 @@ public class Secretaria {
         }
 
         else if (tipo_dulce.equals("gomitas")) {
-            int tamaÃ±o_deposito = Manufactura.Deposito_gomitas.size();
+            int tamaño_deposito = Manufactura.Deposito_gomitas.size();
 
-            if (tamaÃ±o_deposito < cantidad_dulces) {
+            if (tamaño_deposito < cantidad_dulces) {
 
             	 x= false;
 
@@ -85,9 +87,9 @@ public class Secretaria {
         }
 
         else if (tipo_dulce.equals("caramelo")) {
-            int tamaÃ±o_deposito = Manufactura.Deposito_caramelos.size();
+            int tamaño_deposito = Manufactura.Deposito_caramelos.size();
 
-            if (tamaÃ±o_deposito < cantidad_dulces) {
+            if (tamaño_deposito < cantidad_dulces) {
 
             	 x= false;
 

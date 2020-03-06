@@ -1,4 +1,3 @@
-package Procesos;
 
 import java.util.*;
 //esta puede ser la manufactura definitiva
@@ -19,24 +18,24 @@ public class Manufactura {
          if (tipo.equals("chocolate")) {
              for (int i = 0; i < 50; i++) {
                  Deposito_chocolate.add(new Dulce("chocolate"));
-                 Azucar = -6;
-                 Almidon = -4;
+                 Azucar -=6;
+                 Almidon -= 4;
              }
          }
          if (tipo.equals("caramelo")) {
              for (int i = 0; i < 50; i++) {
                  Deposito_caramelos.add(new Dulce("caramelo"));
-                 Colorante = -5;
-                 Azucar = -7;
-                 Almidon = -3;
+                 Colorante -= 5;
+                 Azucar -=7;
+                 Almidon -= 3;
              }
          }
          if (tipo.equals("gomitas")) {
              for (int i = 0; i < 50; i++) {
                  Deposito_gomitas.add(new Dulce("gomitas"));
-                 Colorante = -4;
-                 Azucar = -7;
-                 Almidon = -3;
+                 Colorante -= 4;
+                 Azucar -= 7;
+                 Almidon -= 3;
              }
          }
 
@@ -45,13 +44,13 @@ public class Manufactura {
              for (int i = 0; i < 50; i++) {
                  if (Azucar > 6 && Almidon > 4) {
                      Deposito_chocolate.add(new Dulce("chocolate"));
-                     Azucar = -6;
-                     Almidon = -4;
+                     Azucar -= 6;
+                     Almidon -= 4;
                  } else {
                      Secretaria.llamarProveedor();
                      Deposito_chocolate.add(new Dulce("chocolate"));
-                     Azucar = -6;
-                     Almidon = -4;
+                     Azucar -= 6;
+                     Almidon -= 4;
                  }
              }
          }
@@ -59,16 +58,16 @@ public class Manufactura {
              for (int i = 0; i < 50; i++) {
                  if (Colorante > 5 && Azucar > 7 && Almidon > 3) {
                      Deposito_caramelos.add(new Dulce("caramelo"));
-                     Colorante = -5;
-                     Azucar = -7;
-                     Almidon = -3;
+                     Colorante -= 5;
+                     Azucar -= 7;
+                     Almidon -= 3;
                  } 
                  else {
                      Secretaria.llamarProveedor();
                      Deposito_caramelos.add(new Dulce("caramelo"));
-                     Colorante = -5;
-                     Azucar = -7;
-                     Almidon = -3;
+                     Colorante -= 5;
+                     Azucar -= 7;
+                     Almidon -= 3;
                  }
              }
          }
@@ -76,15 +75,15 @@ public class Manufactura {
              for (int i = 0; i < 50; i++) {
                  if (Colorante > 4 && Azucar > 7 && Almidon > 3) {
                      Deposito_gomitas.add(new Dulce("gomitas"));
-                     Colorante = -4;
-                     Azucar = -7;
-                     Almidon = -3;
+                     Colorante -= 4;
+                     Azucar -= 7;
+                     Almidon -= 3;
                  } else {
                      Secretaria.llamarProveedor();
                      Deposito_gomitas.add(new Dulce("gomitas"));
-                     Colorante = -4;
-                     Azucar = -7;
-                     Almidon = -3;
+                     Colorante -= 4;
+                     Azucar -= 7;
+                     Almidon -= 3;
                  }
              }
          }

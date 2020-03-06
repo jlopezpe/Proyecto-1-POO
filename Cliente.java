@@ -1,6 +1,3 @@
-package Personas;
-
-
 import java.util.*;
 public class Cliente extends Persona{
 	

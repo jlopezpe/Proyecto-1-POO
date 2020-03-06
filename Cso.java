@@ -1,13 +1,10 @@
-package Personas;
-import Procesos.Empresa;
-
 public class Cso extends Empleado {
 	public static int ventaChocolate;
 	public static int ventaGomitas;
 	public static int ventaCaramelos;
 	Cso(String nombre,int sueldo){
         super(nombre,sueldo);
-    	}
+    }
     public static int ganancias() {
     	
     	int resultado=Empresa.ventas-Empresa.costos;
@@ -21,7 +18,7 @@ public class Cso extends Empleado {
     	
     }
 
-    public void asignarSueldo(Empleado emp) {
+    public static void asignarSueldo(Empleado emp) {
         if (Empresa.capital > 20000000) {
             emp.sueldo = 960000;
         } else if (Empresa.capital < 20000000) {
@@ -30,7 +27,7 @@ public class Cso extends Empleado {
         }
     }
     
-    public void despedir(){
+    public static void despedir(){
         int x=(int) ((Math.random() * ((Empleado.idSiguiente - 2) + 1)) + 2);
         Empleado.listaEmpleados.remove(x);
     }
@@ -68,7 +65,7 @@ public class Cso extends Empleado {
 		  return false;
 	  }
   }
-	 public String mayorVenta() {
+	 public static String mayorVenta() {
 	  String mensaje="";
 	  if(ventaChocolate>ventaGomitas && ventaChocolate>ventaCaramelos) {
 		  mensaje="Chocolate con "+ventaChocolate+" unidades";

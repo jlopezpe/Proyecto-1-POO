@@ -1,6 +1,3 @@
-package Procesos;
-import java.util.*;
-
 public class Empresa {
     public int NIT;
     public int RUT;
@@ -15,19 +12,19 @@ public class Empresa {
         this.direccion=direccion;
         this.nombre=nombre;
     }
-    
+
     public static void getEmpleados(){
-        
+
         for(Empleado n:Empleado.listaEmpleados){
             System.out.println(n.getId() + "     " + n.nombre + "     " + n.cargo);
         }
-        
+
     }
-    
+
     public void crearEmpleado(String nom,String carg){
-        
+
         Empleado.listaEmpleados.add(new Empleado(nom,carg));
     }
 
-    
+
 }

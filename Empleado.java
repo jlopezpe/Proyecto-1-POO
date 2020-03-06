@@ -1,17 +1,13 @@
-package Personas;
-
-
 import java.util.*;
 public class Empleado extends Persona {
 
     public int sueldo, empleadoNum, horas;
     String cargo;
-    private final int id;
+    public int id;
     public static int idSiguiente=0;
     
     
     public static ArrayList<Empleado> listaEmpleados=new ArrayList<>();
-    
     Empleado(){
         id=idSiguiente;
         idSiguiente++;
