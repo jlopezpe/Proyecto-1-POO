@@ -1,6 +1,6 @@
 package colorBox;
 public class Persona {
-    public String nombre;
+    private String nombre;
     public long id;
     Persona(){}
     Persona(String nombre){
