@@ -1,4 +1,4 @@
-package colorBox;
+package Personas;
 public class Persona {
     public String nombre;
     public long id;
