@@ -1,4 +1,5 @@
-package colorBox;
+package UiMain;
+import Personas.Cso;
 public class Ganancia extends OpcionDeMenu{
 	  public void ejecutar(){	    
 	    Cso.ganancias();
