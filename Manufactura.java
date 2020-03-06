@@ -1,4 +1,5 @@
-package colorBox;
+package Procesos;
+
 import java.util.*;
 //esta puede ser la manufactura definitiva
 public class Manufactura {
