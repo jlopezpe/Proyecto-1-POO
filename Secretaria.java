@@ -9,11 +9,13 @@ public class Secretaria {
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                      Cso.ventaChocolate+=cantidad_dulces;
+                    Empresa.ventas=+cantidad_dulces*2000;
 
                 } else {
                     borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                         factura.generarCosto(tipo_dulce,cantidad_dulces,cliente); Cso.ventaChocolate+=cantidad_dulces;
                         Cso.ventaChocolate+=cantidad_dulces;
+                    Empresa.ventas=+cantidad_dulces*2000;
                 }
             }
 
@@ -23,10 +25,12 @@ public class Secretaria {
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                      Cso.ventaGomitas+=cantidad_dulces;
+                    Empresa.ventas=+cantidad_dulces*300;
                 } else {
                     borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                     Cso.ventaGomitas+=cantidad_dulces;
+                    Empresa.ventas=+cantidad_dulces*300;
                 }
 
             }
@@ -36,11 +40,13 @@ public class Secretaria {
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                     Cso.ventaCaramelos+=cantidad_dulces;
+                    Empresa.ventas=+cantidad_dulces*200;
                 } else {
 
                 	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                     Cso.ventaCaramelos+=cantidad_dulces;
+                    Empresa.ventas=+cantidad_dulces*200;
                 }
 
             }
