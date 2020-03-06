@@ -1,26 +1,39 @@
-package Test;
 import java.util.*;
 public class Empleado extends Persona {
 
     public int sueldo, empleadoNum, horas;
     String cargo;
+    private final int id;
     public static int idSiguiente=0;
     
     public static ArrayList<Empleado> listaEmpleados=new ArrayList<>();
     
-    Empleado(String nombre){
-        super(idSiguiente,nombre);
+    Empleado(){
+        id=idSiguiente;
         idSiguiente++;
     }
     Empleado(String nombre, String cargo) {
-    	super(idSiguiente,nombre);
+        this.nombre = nombre;
+        id=idSiguiente;
         this.cargo = cargo;
         listaEmpleados.add(this);
         idSiguiente++;
+    }
+    Empleado(String nombre){
+        this.nombre = nombre;
+        id=idSiguiente;
+        listaEmpleados.add(this);
+        idSiguiente++;
+    }
+    public int getId(){
+        return id;
     }
     
     public Empleado getEmpleado(int i){
         return Empleado.listaEmpleados.get(i);
     }
    
-}  
+    
+    
+    
+}
