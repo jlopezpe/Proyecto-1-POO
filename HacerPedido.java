@@ -14,7 +14,7 @@ public class hacerPedido extends OpcionDeMenu {
 		String direccion=input.next();
 		System.out.print("¿Cuál es su teléfono");
 		int celular=input.nextInt();
-		Cliente cliente =new Cliente(nombre,celular,direccion);
+		Cliente cliente =new Cliente(nombre,direccion,celular);
 		
 		
 		
