@@ -4,7 +4,6 @@ public class Repartidor extends Empleado{
 
     public static int idRepar;
     public String placa;
-    public static int max=5;
     public static ArrayList<Dulce> pedido= new ArrayList<>();
     int numPedidos=pedido.size();
     public int puntosTrabajo;
@@ -24,7 +23,7 @@ public void Repartir(Cliente a) {
 
     public boolean disponibilidad(){
         if(numPedidos!=0){
-            //System.out.println("no hay Repartidores disponibles, por favor intentelo m·s tarde");
+            //System.out.println("no hay Repartidores disponibles, por favor intentelo m√°s tarde");
             return false;
         }
         else{
