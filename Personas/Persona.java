@@ -7,7 +7,7 @@ public class Persona {
         this.nombre=nombre;
     }
     Persona(long id,String nombre){
-        this.nombre=nombre;
+        this(nombre);
         this.id=id;
     }
 }
