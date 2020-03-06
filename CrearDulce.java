@@ -1,14 +1,21 @@
 public class CrearDulce extends OpcionDeMenu{
-  public void ejecutar(){  
-    if (Secretaria.tipo.equals("chocolate"){
-    System.out.println("Usted acaba de crear 80 unidades de chocolate);
+  public void ejecutar(){
+    Scanner input=new Scanner (System.in);
+    System.out.println("Qué tipo de dulce la gustaría crear, por favor escriba como se muestran las opciones "\n"chocolate" \n "gomitas" \n "caramelo");
+    String tipo =input.next();
+    System.out.println("Estamos verificando, espere un momento, recuerde que nuestra empresa hará 50 ejemplares del tipo de dulce que haya escogido");
+    if (tipo.equals("chocolate"){
+      ManufacturaF.crearDulce(tipo)
+      System.out.println("Usted acaba de crear 50 unidades de chocolate);
     }
-     if (Secretaria.tipo.equals("gomitas"){
-    System.out.println("Usted acaba de crear 80 unidades de "+ Secretaria.tipo);
-     }
-     if (Secretaria.tipo.equals("caramelo"){
-    System.out.println("Usted acaba de crear 80 unidades de " + Secretaria.tipo);
-     }
-    System.out.println("Aún quedan en el almacenamiento" + Manufactura.Azucar +" kilos de azucar" + Manufactura.Colorante + " litros de colorante"+ Manufactura.Almidon +" kilos de almidón"); 
+    if (tipo.equals("gomitas"){
+      ManufacturaF.crearDulce(tipo)
+      System.out.println("Usted acaba de crear 50 unidades de gomitas);
+    }
+     if (tipo.equals("caramelo"){
+      ManufacturaF.crearDulce(tipo)
+      System.out.println("Usted acaba de crear 50 unidades de caramelos);
+    }
+    System.out.println("Aún quedan en el almacenamiento" + ManufacturaF.Azucar +" kilos de azucar" + ManufacturaF.Colorante + " litros de colorante"+ ManufacturaF.Almidon +" kilos de almidón"); 
   } 
 }
