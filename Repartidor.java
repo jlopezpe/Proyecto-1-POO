@@ -16,8 +16,6 @@ public class Repartidor extends Empleado{
 public void Repartir(Cliente a) {
     this.puntosTrabajo+=1;
         if(this.disponibilidad()==true) {
-
-            a.pedido_cliente=this.pedido;
             pedido.clear();
         }
 }
