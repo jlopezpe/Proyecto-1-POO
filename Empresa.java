@@ -8,6 +8,7 @@ public class Empresa {
     public String direccion;
     public static int capital=40000000;
     public static int costos=0;
+    public static int ventas=0;
     public Empresa(int NIT,int RUT,String nombre,String direccion){
         this.NIT=NIT;
         this.RUT=RUT;
