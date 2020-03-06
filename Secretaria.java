@@ -4,19 +4,21 @@ public class Secretaria {
 
     static ArrayList<Dulce> pedidoSec = new ArrayList<>();
     public String tipo;
-    public static void tomarPedido(String tipo_dulce,int cantidad_dulces) {
+    public static void tomarPedido(String tipo_dulce,int cantidad_dulces, Cliente cliente) {
         tipo=tipo_dulce;
+        Factura factura=new Factura();
             if (tipo_dulce.equals("chocolate")) {
 
                 if (verificarStock(tipo_dulce, cantidad_dulces) == false) {
 
                     Manufactura.CrearDulce();
                     borrarDulces(tipo_dulce,cantidad_dulces);
+                    factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
 
                 } else {
 
                         borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
-
+                        factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                 }
             }
 
@@ -24,10 +26,10 @@ public class Secretaria {
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
                     Manufactura.CrearDulce();
                     borrarDulces(tipo_dulce,cantidad_dulces);
-
+                    factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                 } else {
-
-                	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
+                    borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
+                    factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                 }
 
             }
@@ -38,10 +40,12 @@ public class Secretaria {
 
                     Manufactura.CrearDulce();
                     borrarDulces(tipo_dulce,cantidad_dulces);
+                    factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
 
                 } else {
 
                 	borrarDulces(tipo_dulce,cantidad_dulces);//ejecutar el metodo para que coja los dulces de los depositos 
+                    factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                 }
 
             }
