@@ -1,4 +1,5 @@
-package colorBox;
+package UiMain;
+
 
 public class MenuDeConsola {
 	public void ejecutarMenu() {
