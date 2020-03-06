@@ -1,5 +1,5 @@
 import java.util.*;
-
+// esta puede ser la manufactura definitiva
 public class ManufacturaF {
 
     public static int Azucar = 600;
