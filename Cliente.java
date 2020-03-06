@@ -1,9 +1,12 @@
+package Personas;
 import java.util.*;
+
+import Procesos.Factura;
 public class Cliente extends Persona{
 	
 	long cel;
 	String Direccion;
-	Cliente(String nombre, long cel, String direccion){
+	public Cliente(String nombre, long cel, String direccion){
 		super(nombre);
 		this.cel=cel;
 		Direccion=direccion;

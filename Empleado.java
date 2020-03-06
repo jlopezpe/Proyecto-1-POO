@@ -1,8 +1,9 @@
+package Personas;
 import java.util.*;
 public class Empleado extends Persona {
 
     public int sueldo, empleadoNum, horas;
-    String cargo;
+    public String cargo;
     public int id;
     public static int idSiguiente=0;
     
@@ -19,7 +20,7 @@ public class Empleado extends Persona {
         listaEmpleados.add(this);
         idSiguiente++;
     }
-    Empleado(String nombre, String cargo) {
+    public Empleado(String nombre, String cargo) {
         this.nombre = nombre;
         id=idSiguiente;
         this.cargo = cargo;
