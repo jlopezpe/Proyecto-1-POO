@@ -1,17 +1,11 @@
 import java.util.*;
-
 public class Secretaria {
-
     static ArrayList<Dulce> pedidoSec = new ArrayList<>();
-    public String tipo;
     public static void tomarPedido(String tipo_dulce,int cantidad_dulces, Cliente cliente) {
-        tipo=tipo_dulce;
         Factura factura=new Factura();
             if (tipo_dulce.equals("chocolate")) {
-
                 if (verificarStock(tipo_dulce, cantidad_dulces) == false) {
-
-                    Manufactura.CrearDulce();
+                    Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
 
@@ -24,7 +18,7 @@ public class Secretaria {
 
             if (tipo_dulce.equals("gomitas")) {
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
-                    Manufactura.CrearDulce();
+                    Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
                 } else {
@@ -33,12 +27,9 @@ public class Secretaria {
                 }
 
             }
-
             if (tipo_dulce.equals("caramelo")) {
-
                 if (Secretaria.verificarStock(tipo_dulce, cantidad_dulces) == false) {
-
-                    Manufactura.CrearDulce();
+                    Manufactura.CrearDulce(tipo_dulce);
                     borrarDulces(tipo_dulce,cantidad_dulces);
                     factura.generarCosto(tipo_dulce,cantidad_dulces,cliente);
 
