@@ -1,10 +1,8 @@
-package colorBox;
 public class Proveedor extends Persona {
 
 	
 	Proveedor(String nombre){
-		
-		this.nombre=nombre;
+		super(nombre);
 	}
 	
 	public static  void Suministrar() {
