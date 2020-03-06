@@ -23,7 +23,7 @@ public class Factura{
         }else if(tipo.equals("gomitas")){
             precio1+=300*cantidad;
             precio_unidad=300;
-        }else if(tipo.equals("confites")){
+        }else if(tipo.equals("caramelos")){
             precio1+=200*cantidad;
             precio_unidad=200;
         }
