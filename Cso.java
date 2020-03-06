@@ -1,4 +1,6 @@
-package colorBox;
+package Personas;
+import Procesos.Empresa;
+
 public class Cso extends Empleado {
 	public static int ventaChocolate;
 	public static int ventaGomitas;
