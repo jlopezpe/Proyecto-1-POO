@@ -1,5 +1,6 @@
-  
-package colorBox;
+package Personas;
+
+
 import java.util.*;
 public class Empleado extends Persona {
 
