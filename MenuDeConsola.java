@@ -1,4 +1,9 @@
+package UiMain;
 import java.util.*;
+
+import Personas.Cso;
+import Personas.Repartidor;
+import Procesos.Manufactura;
 public class MenuDeConsola {
 	public void ejecutarMenu() {
 		
@@ -129,5 +134,3 @@ public class MenuDeConsola {
 
 	}
 }
-
-	
