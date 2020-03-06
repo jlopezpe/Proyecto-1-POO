@@ -1,4 +1,8 @@
+package Personas;
 import java.util.*;
+
+import Procesos.*;
+
 public class Secretaria {
     static ArrayList<Dulce> pedidoSec = new ArrayList<>();
     public static void tomarPedido(String tipo_dulce,int cantidad_dulces, Cliente cliente) {

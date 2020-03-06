@@ -1,8 +1,12 @@
+
+package Personas;
+
+import Procesos.Empresa;
 public class Cso extends Empleado {
 	public static int ventaChocolate;
 	public static int ventaGomitas;
 	public static int ventaCaramelos;
-	Cso(String nombre,int sueldo){
+	public Cso(String nombre,int sueldo){
         super(nombre,sueldo);
     }
     public static int ganancias() {
