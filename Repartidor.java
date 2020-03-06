@@ -1,5 +1,7 @@
-package colorBox;
+package Personas;
+import Procesos.Dulce;
 import java.util.*;
+
 public class Repartidor extends Empleado{
 
     public static int idRepar;
