@@ -8,6 +8,8 @@ public class Factura{
 	private int precio;
 	private int precio_unidad=0;
 	public int precio_total=0;
+	
+	public Factura() {}
 	public Factura(String tipo,int cantidad,int precio) {
 		tipo_dulce=tipo;
 		this.cantidad=cantidad;
