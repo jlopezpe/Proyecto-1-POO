@@ -1,3 +1,7 @@
+package Procesos;
+
+import Personas.Empleado;
+
 public class Empresa {
     public int NIT;
     public int RUT;

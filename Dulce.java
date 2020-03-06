@@ -1,3 +1,4 @@
+package Procesos;
 public class Dulce {
 	public String nombre;
 	
@@ -5,5 +6,4 @@ public class Dulce {
 		
 		this.nombre=nombre;
 	}
-
 }

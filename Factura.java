@@ -1,4 +1,6 @@
-//import Personas.Cliente;
+package Procesos;
+
+import Personas.Cliente;
 
 public class Factura{
     public String tipo_dulce;
