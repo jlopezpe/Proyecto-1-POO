@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Manufactura {
+public class ManufacturaF {
 
     public static int Azucar = 600;
     public static int Colorante = 600;
