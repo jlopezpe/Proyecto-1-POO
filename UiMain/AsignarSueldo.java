@@ -1,5 +1,7 @@
+package UiMain;
 import java.util.Scanner;
-
+import Personas.Cso;
+import Personas.Empleado;
 public class AsignarSueldo extends OpcionDeMenu{
 public void ejecutar(){
     Scanner input= new Scanner(System.in);

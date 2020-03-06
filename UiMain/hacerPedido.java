@@ -1,4 +1,9 @@
+package UiMain;
+
 import java.util.Scanner;
+
+import Personas.Cliente;
+
 
 public class hacerPedido extends OpcionDeMenu {
 	

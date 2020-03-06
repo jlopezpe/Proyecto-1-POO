@@ -1,4 +1,9 @@
+
+package UiMain;
+
 import java.util.*;
+
+import Procesos.Manufactura;
 public class CrearDulce extends OpcionDeMenu{
   public void ejecutar(){
     Scanner input=new Scanner (System.in);
