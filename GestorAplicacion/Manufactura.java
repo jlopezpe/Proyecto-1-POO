@@ -1,6 +1,8 @@
 
+package Procesos;
 import java.util.*;
-//esta puede ser la manufactura definitiva
+
+import Personas.Secretaria;
 public class Manufactura {
 
  public static int Azucar = 600;
