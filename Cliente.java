@@ -1,5 +1,4 @@
-import java.util.*;
-
+package colorBox;
 import java.util.*;
 public class Cliente extends Persona{
 	
@@ -20,4 +19,3 @@ public class Cliente extends Persona{
 		}
 	}
 }
-

@@ -1,10 +1,9 @@
-package Test;
-import java.util.*;
+package colorBox;
 public class Cso extends Empleado {
 	public static int ventaChocolate;
 	public static int ventaGomitas;
 	public static int ventaCaramelos;
-    public int ganancias() {
+    public static int ganancias() {
     	
     	int resultado=Empresa.ventas-Empresa.costos;
     	

@@ -1,3 +1,4 @@
+package colorBox;
 import java.util.*;
 public class Secretaria {
     static ArrayList<Dulce> pedidoSec = new ArrayList<>();
@@ -56,9 +57,9 @@ public class Secretaria {
     private static boolean verificarStock(String tipo_dulce, int cantidad_dulces) {
     	boolean x=false;
         if (tipo_dulce.equals("chocolate")) {
-            int tamaÃ±o_deposito = Manufactura.Deposito_chocolate.size();
+            int tamaño_deposito = Manufactura.Deposito_chocolate.size();
 
-            if (tamaÃ±o_deposito < cantidad_dulces) {
+            if (tamaño_deposito < cantidad_dulces) {
 
                 x= false;
 
@@ -68,9 +69,9 @@ public class Secretaria {
         }
 
         else if (tipo_dulce.equals("gomitas")) {
-            int tamaÃ±o_deposito = Manufactura.Deposito_gomitas.size();
+            int tamaño_deposito = Manufactura.Deposito_gomitas.size();
 
-            if (tamaÃ±o_deposito < cantidad_dulces) {
+            if (tamaño_deposito < cantidad_dulces) {
 
             	 x= false;
 
@@ -81,9 +82,9 @@ public class Secretaria {
         }
 
         else if (tipo_dulce.equals("caramelo")) {
-            int tamaÃ±o_deposito = Manufactura.Deposito_caramelos.size();
+            int tamaño_deposito = Manufactura.Deposito_caramelos.size();
 
-            if (tamaÃ±o_deposito < cantidad_dulces) {
+            if (tamaño_deposito < cantidad_dulces) {
 
             	 x= false;
 

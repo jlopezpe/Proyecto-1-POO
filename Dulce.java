@@ -1,3 +1,4 @@
+package colorBox;
 public class Dulce {
 	public String nombre;
 	

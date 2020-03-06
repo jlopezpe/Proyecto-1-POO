@@ -1,5 +1,4 @@
-import java.util.*;
-
+package colorBox;
 public class Persona {
     public String nombre;
     public long id;

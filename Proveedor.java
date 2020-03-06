@@ -1,22 +1,18 @@
-
+package colorBox;
 public class Proveedor extends Persona {
+
 	
-	int sueldo;
-	
-	
-	Proveedor(int sueldo,String nombre,int id){
-		super(nombre,id);
-		this.sueldo=sueldo;
+	Proveedor(String nombre){
+		
 		this.nombre=nombre;
 	}
 	
-	public static void Suministrar() {
+	public static  void Suministrar() {
 		
-		Manufactura.Azucar=+80;
-		Manufactura.Colorante=+80;
-		Manufactura.Almidon=+80;
-		Empresa.capital=-200000;
-		Empresa.costos+=2000000;
+		Manufactura.Azucar=+50;
+		Manufactura.Colorante=+50;
+		Manufactura.Almidon=+50;
+		Empresa.capital=-5000;
 		
 		
 	}

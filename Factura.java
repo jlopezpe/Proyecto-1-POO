@@ -1,6 +1,4 @@
-
-package Test;
-
+package colorBox;
 
 public class Factura{
 	public String tipo_dulce;
@@ -38,4 +36,3 @@ public class Factura{
     }
 		
 }
-

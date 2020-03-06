@@ -1,5 +1,6 @@
+package colorBox;
 public class RepartidorMes extends OpcionDeMenu{
-  public void ejecutar(){ 
-    System.out.println(Cso.repartidorMes());
-  } 
+public void ejecutar(){ 
+  System.out.println(Cso.repartidorMes());
+} 
 }

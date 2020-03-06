@@ -1,3 +1,5 @@
+  
+package colorBox;
 import java.util.*;
 public class Empleado extends Persona {
 
@@ -5,6 +7,7 @@ public class Empleado extends Persona {
     String cargo;
     private final int id;
     public static int idSiguiente=0;
+    
     
     public static ArrayList<Empleado> listaEmpleados=new ArrayList<>();
     
@@ -19,21 +22,11 @@ public class Empleado extends Persona {
         listaEmpleados.add(this);
         idSiguiente++;
     }
-    Empleado(String nombre){
-        this.nombre = nombre;
-        id=idSiguiente;
-        listaEmpleados.add(this);
-        idSiguiente++;
-    }
     public int getId(){
         return id;
     }
     
-    public Empleado getEmpleado(int i){
+    public static  Empleado getEmpleado(int i){
         return Empleado.listaEmpleados.get(i);
-    }
-   
-    
-    
-    
+    }    
 }

@@ -1,6 +1,4 @@
-package Test;
-import java.util.*;
-
+package colorBox;
 public class Empresa {
     public int NIT;
     public int RUT;
@@ -16,7 +14,7 @@ public class Empresa {
         this.nombre=nombre;
     }
     
-    public static void getEmpleados(){//Cambiar para q los impriman una clase :)
+    public static void getEmpleados(){
         
         for(Empleado n:Empleado.listaEmpleados){
             System.out.println(n.getId() + "     " + n.nombre + "     " + n.cargo);
