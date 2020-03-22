@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 
 public class MenuDeConsola extends Application {
 	Stage window;
-    Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo;
+    Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores;
     
     public static void main(String[] args) {
         launch(args);
@@ -36,7 +36,7 @@ public class MenuDeConsola extends Application {
         boton1.setPrefWidth(80);
         boton1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
-				window.setScene(inicio);
+				window.setScene(programadores);
 			}
 		});
         label1.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -62,6 +62,95 @@ public class MenuDeConsola extends Application {
         vista.add(boton1, 1, 2);
         vista.setAlignment(Pos.CENTER);
         
+        //programadores
+        BorderPane progra =new BorderPane();
+        Label label3 = new Label("BIENVENIDO ESTOS SON NUESTROS PROGRAMADORES, DE CLICK SOBRE EL NOMBRE PARA CONOCER MÁS DETALLES");
+        Button boton7 =new Button ("Ir a los Menús");
+        progra.setTop(label3);
+        progra.setBottom(boton7);
+        GridPane programa =new GridPane();
+        programa.setPadding(new Insets(10,10,10,10));
+        programa.setAlignment(Pos.CENTER);
+        Button junior =new Button("Junior Muñoz");
+        Button aleja =new Button("Alejandra Muñoz");
+        Button jonathan =new Button("Jonathan Lopez");
+        Button jake =new Button("Jakeline Correa");
+        Button juan =new Button("Juan José");
+        Button volver =new Button("Volver a los programadores");
+        programa.add(junior,0,0);
+        programa.add(aleja,1,0);
+        programa.add(jonathan,2,0);
+        programa.add(jake,3,0);
+        programa.add(juan,4,0);
+        progra.setCenter(programa);
+        // CAMBIAR COLOR Y YA
+        label3.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				label3.setStyle("-fx-text-fill: yellow;");
+				
+			}
+		});
+		label3.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				label3.setStyle("-fx-text-fill: blue;");
+				
+			}
+		});
+        
+        //biografia cada uno
+        junior.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				BorderPane junior =new BorderPane();
+				junior.setCenter(new Label("Hola soy junior muñoz, tengo 21 años"));
+				junior.setBottom(volver);
+				Scene junior1=new Scene(junior,500,200);
+				window.setScene(junior1);
+			}
+		});
+        aleja.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				BorderPane aleja =new BorderPane();
+				aleja.setCenter(new Label("Hola soy alejandra muñoz, tengo 20 años"));
+				aleja.setBottom(volver);
+				Scene aleja1=new Scene(aleja,500,200);
+				window.setScene(aleja1);
+			}
+		});
+        jonathan.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				BorderPane jonathan =new BorderPane();
+				jonathan.setCenter(new Label("Hola soy jonathan Lopez, tengo 21 años"));
+				jonathan.setBottom(volver);
+				Scene jonathan1=new Scene(jonathan,500,200);
+				window.setScene(jonathan1);
+			}
+		});
+        jake.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				BorderPane jake =new BorderPane();
+				jake.setCenter(new Label("Hola soy jakeline correa, tengo 21 años"));
+				jake.setBottom(volver);
+				Scene jake1=new Scene(jake,500,200);
+				window.setScene(jake1);
+			}
+		});
+        juan.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				BorderPane juan =new BorderPane();
+				juan.setCenter(new Label("Hola soy juan jose, tengo 21 años"));
+				juan.setBottom(volver);
+				Scene juan1=new Scene(juan,500,200);
+				window.setScene(juan1);
+			}
+		});
+        
+        
+        //boton volver 
+        volver.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(programadores);
+			}
+		});
         //inicio
         GridPane inicio1 =new GridPane();
         //Label bienvenida = new Label("Estos son nuestros programadores");
@@ -70,7 +159,6 @@ public class MenuDeConsola extends Application {
         Button boton4 =new Button("Hacer Dulce");
         Button boton5 =new Button("Ganancias");
         Button boton6 =new Button("Asignar Sueldo");
-        Button boton7 =new Button ("Regresar al inicio");
         inicio1.add(boton2,0, 0);
         inicio1.add(boton3,1, 0);
         inicio1.add(boton4,2, 0);
@@ -140,6 +228,10 @@ public class MenuDeConsola extends Application {
         VBox layout7 = new VBox(20);
         layout7.getChildren().addAll();
         asignarSueldo= new Scene (layout7,500,200);
+        
+        VBox layout8 = new VBox(20);
+        layout8.getChildren().addAll(progra);
+        programadores = new Scene(layout8, 650, 100);
         
         window.setScene(registro);
         window.setTitle("COLOR BOX");
