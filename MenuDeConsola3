@@ -103,7 +103,7 @@ public class MenuDeConsola extends Application {
 			}
 		});
 		
-		Image imagen = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulces.jpg"));
+		Image imagen = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
 		ImageView imagenView= new ImageView(imagen);
 		//imagenView.setFitHeight(200);
 		//imagenView.setFitWidth(100);
