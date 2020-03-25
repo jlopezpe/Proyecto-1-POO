@@ -24,7 +24,7 @@ import java.io.FileInputStream;
 public class MenuDeConsola extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda;
-    static int flagIngreso=1;
+    static int flagIngreso=0;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
