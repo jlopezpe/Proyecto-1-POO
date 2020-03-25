@@ -21,10 +21,11 @@ import javafx.geometry.*;
 import javafx.scene.text.Font;
 import java.io.FileInputStream;
 
-public class MenuDeConsola extends Application {
+public class MenuDeConsola1 extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda;
-    static int flagIngreso=1;
+    static int flagUsu=0;
+    static int flagContra=0;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -79,9 +80,9 @@ public class MenuDeConsola extends Application {
 			public void handle(ActionEvent event) {
 				String usu=text1.getText();
 				if (usu.equals("usuario")) {
-					flagIngreso=1;
+					flagUsu=1;
 				}else {
-					flagIngreso=0;
+					flagUsu=0;
 					a1.setAlertType(AlertType.ERROR);
 					a1.setContentText("Ingrese el nombre de usuario correcto.");
 					a1.show();
@@ -93,9 +94,9 @@ public class MenuDeConsola extends Application {
 			public void handle(ActionEvent event) {
 				String contra=text2.getText();
 				if (contra.equals("12345")) {
-					flagIngreso=1;
+					flagContra=1;
 				}else {
-					flagIngreso=0;
+					flagContra=0;
 					a1.setAlertType(AlertType.ERROR);
 					a1.setContentText("Ingrese la contraseña correcta.");
 					a1.show();
@@ -115,7 +116,7 @@ public class MenuDeConsola extends Application {
         	String contra=text2.getText();
 			public void handle(ActionEvent event) {
 				//System.out.print(usu);
-				if(flagIngreso==1) {
+				if(flagUsu==1 && flagContra==1) {
 					window.setScene(programadores);
 				}
 				else {
