@@ -14,14 +14,14 @@ public class Empleado extends Persona {
         idSiguiente++;
     }
     Empleado(String nombre, int sueldo){
-        this.setNombre(nombre);
+        super(nombre);
         this.sueldo=sueldo;
         id=idSiguiente;
         listaEmpleados.add(this);
         idSiguiente++;
     }
     public Empleado(String nombre, String cargo) {
-        this.setNombre(nombre);
+        super(nombre);
         id=idSiguiente;
         this.cargo = cargo;
         listaEmpleados.add(this);
