@@ -21,11 +21,11 @@ import javafx.geometry.*;
 import javafx.scene.text.Font;
 import java.io.FileInputStream;
 
-public class MenuDeConsola1 extends Application {
+public class MenuDeConsola3 extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda;
-    static int flagUsu=0;
-    static int flagContra=0;
+    static int flagUsu=1;
+    static int flagContra=1;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -103,11 +103,10 @@ public class MenuDeConsola1 extends Application {
 				}
 			}
 		});
-		
+
 		Image imagen = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
 		ImageView imagenView= new ImageView(imagen);
-		//imagenView.setFitHeight(200);
-		//imagenView.setFitWidth(100);
+		
 		Label label2 = new Label("",imagenView);
         Button boton1 = new Button("Ingresar");
         boton1.setPrefWidth(80);
@@ -115,7 +114,6 @@ public class MenuDeConsola1 extends Application {
         	String usu=text1.getText();
         	String contra=text2.getText();
 			public void handle(ActionEvent event) {
-				//System.out.print(usu);
 				if(flagUsu==1 && flagContra==1) {
 					window.setScene(programadores);
 				}
@@ -129,13 +127,13 @@ public class MenuDeConsola1 extends Application {
         label1.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				label1.setStyle("-fx-text-fill: blue;");
-				
+
 			}
 		});
 		label1.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				label1.setStyle("-fx-text-fill: purple;");
-				
+
 			}
 		});
         GridPane vista =new GridPane();
@@ -148,53 +146,188 @@ public class MenuDeConsola1 extends Application {
         vista.add(text2, 1, 1);
         vista.add(boton1, 1, 2);
         vista.setAlignment(Pos.CENTER);
-        
+
         //programadores
+        GridPane Total= new GridPane();
+        BorderPane total =new BorderPane();
+        GridPane total1 =new GridPane();
+        
         BorderPane progra =new BorderPane();
         Label label3 = new Label("BIENVENIDO ESTOS SON NUESTROS PROGRAMADORES, DE CLICK SOBRE EL NOMBRE PARA CONOCER MÁS DETALLES");
-        Button boton7 =new Button ("Ir a los Menús");
+        label3.setMaxWidth(600);
+        label3.setWrapText(true);
+        label3.setFont(new Font("Times New Roman",18)); 
         progra.setTop(label3);
-        progra.setBottom(boton7);
-        GridPane programa =new GridPane();
-        programa.setPadding(new Insets(10,10,10,10));
-        programa.setAlignment(Pos.CENTER);
+        
         Button junior =new Button("Junior Muñoz");
+        junior.setPrefWidth(150);
         Button aleja =new Button("Alejandra Muñoz");
+        aleja.setPrefWidth(150);
         Button jonathan =new Button("Jonathan Lopez");
+        jonathan.setPrefWidth(150);
         Button jake =new Button("Jakelin Correa");
+        jake.setPrefWidth(150);
         Button juan =new Button("Juan José Salazar");
-        Button volver =new Button("Volver a los programadores");
-        programa.add(junior,0,0);
-        programa.add(aleja,1,0);
-        programa.add(jonathan,2,0);
-        programa.add(jake,3,0);
-        programa.add(juan,4,0);
+        juan.setPrefWidth(150);
+        
+        VBox Progra3 =new VBox(junior,aleja);
+        VBox Progra1 =new VBox(jonathan,jake);
+        VBox Progra2=new VBox(juan);
+        VBox Progra=new VBox(Progra1,Progra2,Progra3);
+        
         //descripcion sistema
+        Button volver =new Button("Volver a los programadores");
+        Button boton7 =new Button ("Ir a los Menús");
+        
+        BorderPane Volver =new BorderPane();
+        Volver.setBottom(boton7);
+        
         GridPane descripcion =new GridPane();
         Label descrip =new Label ("DESCRIPCIÓN DEL SISTEMA");
-        Label descri=new Label ("Este programa esta desarollado para una empresa que produce dulce y los distribuye a sus respetivos clientes");
-        descri.setMaxWidth(180);
+        Label descri=new Label ("Este programa esta desarollado para una empresa que produce dulce y los distribuye a sus respetivos clientes.");
+        descrip.setMaxWidth(800);
+        descrip.setWrapText(true);
+        descrip.setFont(new Font("Times New Roman",20)); 
+        descri.setMaxWidth(500);
         descri.setWrapText(true);
-        descripcion.add(descrip,0,1);
-        descripcion.add(descri,2,1);
-        progra.setCenter(programa);
-        //progra.setLeft(descripcion);
-       // progra.setAlignment(descripcion, Pos.BOTTOM_RIGHT);
-    
-        // CAMBIAR COLOR Y YA
-        label3.setOnMouseEntered(new EventHandler<MouseEvent>() {
+        descri.setFont(new Font("Times New Roman",18)); 
+        descripcion.add(descrip,0,0);
+        descripcion.add(descri,0,1);
+        descripcion.setVgap(8);
+        descripcion.setHgap(8);
+        descripcion.setAlignment(Pos.BOTTOM_LEFT);
+        descrip.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				label3.setStyle("-fx-text-fill: blue;");
+				descrip.setStyle("-fx-text-fill: blue;");
 				
 			}
 		});
-		label3.setOnMouseExited(new EventHandler<MouseEvent>() {
+        descrip.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				descrip.setStyle("-fx-text-fill: green;");
+				
+			}
+		});
+        
+        
+        
+        //imagenes
+        Image imagenes = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
+		ImageView imagenV= new ImageView(imagenes);
+		imagenV.setFitHeight(100);
+		imagenV.setFitWidth(80);
+		Label ima = new Label("",imagenV);
+		
+		BorderPane Imagenes =new BorderPane();
+        Imagenes.setBottom(ima);
+		
+		Image imagen1 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce1.jpg"));
+		ImageView imagenV1= new ImageView(imagen1);
+		imagenV1.setFitHeight(100);
+		imagenV1.setFitWidth(80);
+		Label ima1 = new Label("",imagenV1);
+		
+		Image imagen2 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce2.jpg"));
+		ImageView imagenV2= new ImageView(imagen2);
+		imagenV2.setFitHeight(100);
+		imagenV2.setFitWidth(80);
+		Label ima2 = new Label("",imagenV2);
+		
+		Image imagen3 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce3.jpg"));
+		ImageView imagenV3= new ImageView(imagen3);
+		imagenV3.setFitHeight(100);
+		imagenV3.setFitWidth(80);
+		Label ima3 = new Label("",imagenV3);
+		
+		Image imagen4 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce4.jpg"));
+		ImageView imagenV4= new ImageView(imagen4);
+		imagenV4.setFitHeight(100);
+		imagenV4.setFitWidth(80);
+		Label ima4 = new Label("",imagenV4);
+		
+		Image imagen5 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce5.jpg"));
+		ImageView imagenV5= new ImageView(imagen5);
+		imagenV5.setFitHeight(100);
+		imagenV5.setFitWidth(80);
+		Label ima5 = new Label("",imagenV5);
+		
+		Image imagen6 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\color.jpg"));
+		ImageView imagenV6= new ImageView(imagen6);
+		imagenV6.setFitHeight(150);
+		imagenV6.setFitWidth(150);
+		Label color = new Label("",imagenV6);
+
+		total.setTop(progra);
+		total.setLeft(Progra);
+		total.setCenter(color);
+		total.setPadding(new Insets(10,10,10,10));
+		
+		
+		total1.add(descripcion, 0, 0);
+		total1.add(Imagenes, 0, 2);
+		total1.setPadding(new Insets(10,10,10,10));
+		total1.setVgap(10);
+        total1.setHgap(10);
+		total1.setAlignment(Pos.BASELINE_RIGHT);
+		
+		Total.add(total, 0, 0);
+		Total.add(total1, 1, 0);
+		Total.add(Volver, 0, 3);
+		Total.setAlignment(Pos.CENTER);
+        
+        
+        ima.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Imagenes.setBottom(ima1);
+
+			}
+		});
+        ima1.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Imagenes.setBottom(ima2);
+
+			}
+		});
+        ima2.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Imagenes.setBottom(ima3);
+
+			}
+		});
+        ima3.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Imagenes.setBottom(ima4);
+
+			}
+		});
+        ima4.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Imagenes.setBottom(ima5);
+
+			}
+		});
+        ima5.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				Imagenes.setBottom(ima);
+
+			}
+		});
+
+       
+    
+        // CAMBIAR COLOR Y YA
+        label3.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				label3.setStyle("-fx-text-fill: yellow;");
 				
 			}
 		});
-        
+		label3.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				label3.setStyle("-fx-text-fill: blue;");
+				
+			}
+		});
         //biografia cada uno
         junior.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -261,8 +394,8 @@ public class MenuDeConsola1 extends Application {
 				window.setScene(juan1);
 			}
 		});
-        
-        
+
+
         //boton volver 
         volver.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -309,13 +442,16 @@ public class MenuDeConsola1 extends Application {
 				window.setScene(asignarSueldo);
 			}
 		});
-        
+
         boton7.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
 				window.setScene(menu);
 			}
 		});
-        
+        //procesos
+        BorderPane hacerpedido=new BorderPane();
+
+
         //menu
         BorderPane Menu =new BorderPane();
         Button archivos =new Button("Archivos");
@@ -337,17 +473,88 @@ public class MenuDeConsola1 extends Application {
 				}
 			}
         });
+        Alert a2=new Alert(AlertType.NONE);
+        combo.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if(combo.getValue().equals("Dulce Mas Vendido")){
+
+
+                    /*GridPane gp1=new GridPane();
+                    Label lbl=new Label("Nombre");
+                    TextField nombre=new TextField();
+                    nombre.setText(new ProductoMasVendido().ejecutar_str());
+                    nombre.setEditable(false);
+                    Label lbls=new Label("Cantidad");
+                    TextField cantidad=new TextField();
+                    cantidad.setText(new ProductoMasVendido().ejecutar_int());
+                    cantidad.setEditable(false);
+                    gp1.add(lbl,0,0);
+                    gp1.add(lbls,0,1);
+                    gp1.add(nombre,1,0);
+                    gp1.add(cantidad,1,1);
+                    Menu.setCenter(gp1);
+                    //Menu.setStyle("-fx-border-color : black; -fx-border-width : 0 5 ");*/
+                }else if(combo.getValue().equals("Hacer Pedido")){
+                    GridPane gp2=new GridPane();
+                    Label lbl2=new Label("Producto:");
+                    Label lbl3=new Label("Cantidad:");
+
+                    TextField txt1=new TextField();
+                    TextField txt2=new TextField();
+                    Button btn1=new Button("Confirmar");
+                    gp2.add(lbl2,0,0);
+                    gp2.add(lbl3,0,1);
+                    gp2.add(txt1,1,0);
+                    gp2.add(txt2,1,1);
+                    gp2.add(btn1,1,2);
+                    gp2.setAlignment(Pos.CENTER);
+                    gp2.setPadding(new Insets(10,10,10,10));
+                    gp2.setVgap(8);
+                    gp2.setHgap(8);
+                    Menu.setCenter(gp2);
+                }
+                else if(combo.getValue().equals("Hacer Dulce")){
+                    GridPane gp2=new GridPane();
+                    Label lbl2=new Label("Dulce a hacer ");
+
+                    TextField txt1=new TextField();
+                    Button btn1=new Button("Confirmar");
+                    gp2.add(lbl2,0,0);
+                    gp2.add(txt1,1,0);
+                    gp2.add(btn1,1,2);
+                    gp2.setAlignment(Pos.CENTER);
+                    gp2.setPadding(new Insets(10,10,10,10));
+                    gp2.setVgap(8);
+                    gp2.setHgap(8);
+                    Menu.setCenter(gp2);
+                    btn1.setOnAction(new EventHandler<ActionEvent>() {
+            			public void handle(ActionEvent event) {
+            				String p;
+            				String tip=txt1.getText();
+            				CrearDulce cd =new CrearDulce();
+            				p=cd.ejecutar1(tip);
+            				a2.setAlertType(AlertType.CONFIRMATION);
+            				a2.setHeaderText("Se han creado dulces");
+            				a2.setContentText(p);
+            				a2.show();
+            			}
+            		});
+                }
+            }
+        });
         Menu.setCenter(bienvenida);
         Menu.setBottom(anterior);
         Menu.setAlignment(anterior, Pos.BOTTOM_RIGHT);
-        
+
         //boton anterior
         anterior.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
 				window.setScene(programadores);
 			}
 		});
-        
+
         //boton ayuda 
         ayuda.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -355,6 +562,7 @@ public class MenuDeConsola1 extends Application {
 			}
 		});
 
+        //ayuda
         BorderPane ayuda1 =new BorderPane();
         Label ayuda2 =new Label("Estos son nuestros programadores");
         ayuda2.setFont(new Font("Times New Roman",15));
@@ -403,8 +611,8 @@ public class MenuDeConsola1 extends Application {
         asignarSueldo= new Scene (layout7,500,200);
         
         VBox layout8 = new VBox(20);
-        layout8.getChildren().addAll(progra);
-        programadores = new Scene(layout8, 650, 300);
+        layout8.getChildren().addAll(Total);
+        programadores = new Scene(layout8, 900, 300);
         
         VBox layout9 = new VBox(20);
         layout9.getChildren().addAll(Menu);
@@ -418,5 +626,4 @@ public class MenuDeConsola1 extends Application {
         window.setTitle("COLOR BOX");
         window.show();
 	}
-
 }
