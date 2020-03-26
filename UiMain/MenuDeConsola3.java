@@ -1,5 +1,11 @@
 package UiMain;
 import java.util.*;
+
+import Excepciones.cincuentaMas;
+import Excepciones.contrasenaIncorrecta;
+import Excepciones.dulceEquivocado;
+import Excepciones.usuarioIncorrecto;
+import Personas.Cliente;
 import Personas.Cso;
 import Personas.Repartidor;
 import Procesos.Manufactura;
@@ -22,11 +28,11 @@ import javafx.geometry.*;
 import javafx.scene.text.Font;
 import java.io.FileInputStream;
 
-public class MenuDeConsola1 extends Application {
+public class MenuDeConsola extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
-    static int flagUsu=1;
-    static int flagContra=1;
+    static int flagUsu=0;
+    static int flagContra=0;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -36,6 +42,25 @@ public class MenuDeConsola1 extends Application {
 			return true;
 		}else {
 			return false;
+		}
+	}
+	public void verificarContrasena(String contrasena)throws contrasenaIncorrecta {
+		if(contrasena.equals("12345")) {
+
+			flagContra=1;
+		}
+		else {
+			flagContra=0;
+			throw new contrasenaIncorrecta();
+		}
+	}
+	public void verificarUsuario(String usuario)throws usuarioIncorrecto {
+		if(usuario.equals("usuario")) {
+			flagUsu=1;
+		}
+		else {
+			flagUsu=0;
+			throw new usuarioIncorrecto();
 		}
 	}
     public static void main(String[] args) {
@@ -80,12 +105,12 @@ public class MenuDeConsola1 extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 				String usu=text1.getText();
-				if (usu.equals("usuario")) {
-					flagUsu=1;
-				}else {
-					flagUsu=0;
+				try {
+					verificarUsuario(usu);
+				}
+				catch(usuarioIncorrecto us) {
 					a1.setAlertType(AlertType.ERROR);
-					a1.setContentText("Ingrese el nombre de usuario correcto.");
+					a1.setContentText(us.getMessage());
 					a1.show();
 				}
 			}
@@ -94,18 +119,18 @@ public class MenuDeConsola1 extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 				String contra=text2.getText();
-				if (contra.equals("12345")) {
-					flagContra=1;
-				}else {
-					flagContra=0;
+				try {
+					verificarContrasena(contra);
+				}
+				catch(contrasenaIncorrecta el) {
 					a1.setAlertType(AlertType.ERROR);
-					a1.setContentText("Ingrese la contraseña correcta.");
+					a1.setContentText(el.getMessage());
 					a1.show();
 				}
 			}
 		});
 
-		Image imagen = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
+		Image imagen = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpeg"));
 		ImageView imagenView= new ImageView(imagen);
 		
 		Label label2 = new Label("",imagenView);
@@ -114,14 +139,34 @@ public class MenuDeConsola1 extends Application {
         boton1.setOnAction(new EventHandler<ActionEvent>() {
         	String usu=text1.getText();
         	String contra=text2.getText();
-			public void handle(ActionEvent event) {
+        	public void handle(ActionEvent event) {
+				//System.out.print(usu);
 				if(flagUsu==1 && flagContra==1) {
+					
 					window.setScene(programadores);
 				}
-				else {
-					a1.setAlertType(AlertType.ERROR);
-					a1.setContentText("Ingrese los datos de ingreso validos,o de la tecla Enter en cada espacio.");
-					a1.show();
+				
+				else if(flagContra==0){
+					try {
+						verificarContrasena(contra);
+					}
+					catch(contrasenaIncorrecta el) {
+						a1.setAlertType(AlertType.ERROR);
+						a1.setContentText(el.getMessage());
+						a1.show();
+					}
+					
+				}
+				else if(flagUsu==0){
+					try {
+						verificarUsuario(usu);
+					}
+					catch(usuarioIncorrecto us) {
+						a1.setAlertType(AlertType.ERROR);
+						a1.setContentText(us.getMessage());
+						a1.show();
+					}
+					
 				}
 			}
 		});
@@ -213,7 +258,7 @@ public class MenuDeConsola1 extends Application {
         
         
         //imagenes
-        Image imagenes = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
+        Image imagenes = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpeg"));
 		ImageView imagenV= new ImageView(imagenes);
 		imagenV.setFitHeight(120);
 		imagenV.setFitWidth(100);
@@ -222,37 +267,37 @@ public class MenuDeConsola1 extends Application {
 		BorderPane Imagenes =new BorderPane();
         Imagenes.setCenter(ima);
 		
-		Image imagen1 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce1.jpg"));
+		Image imagen1 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce1.jpeg"));
 		ImageView imagenV1= new ImageView(imagen1);
 		imagenV1.setFitHeight(120);
 		imagenV1.setFitWidth(100);
 		Label ima1 = new Label("",imagenV1);
 		
-		Image imagen2 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce2.jpg"));
+		Image imagen2 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce2.jpeg"));
 		ImageView imagenV2= new ImageView(imagen2);
 		imagenV2.setFitHeight(120);
 		imagenV2.setFitWidth(100);
 		Label ima2 = new Label("",imagenV2);
 		
-		Image imagen3 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce3.jpg"));
+		Image imagen3 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce3.jpeg"));
 		ImageView imagenV3= new ImageView(imagen3);
 		imagenV3.setFitHeight(120);
 		imagenV3.setFitWidth(100);
 		Label ima3 = new Label("",imagenV3);
 		
-		Image imagen4 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce4.jpg"));
+		Image imagen4 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce4.jpeg"));
 		ImageView imagenV4= new ImageView(imagen4);
 		imagenV4.setFitHeight(120);
 		imagenV4.setFitWidth(100);
 		Label ima4 = new Label("",imagenV4);
 		
-		Image imagen5 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce5.jpg"));
+		Image imagen5 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce5.jpeg"));
 		ImageView imagenV5= new ImageView(imagen5);
 		imagenV5.setFitHeight(120);
 		imagenV5.setFitWidth(100);
 		Label ima5 = new Label("",imagenV5);
 		
-		Image imagen6 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\color.jpg"));
+		Image imagen6 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\color.jpeg"));
 		ImageView imagenV6= new ImageView(imagen6);
 		imagenV6.setFitHeight(150);
 		imagenV6.setFitWidth(150);
@@ -264,7 +309,7 @@ public class MenuDeConsola1 extends Application {
 		total.setBottom(Volver);
 		total.setPadding(new Insets(10,10,10,10));
 		// boton cerrar app
-		Image cierra = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\exit.jpg"));
+		Image cierra = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\exit.jpeg"));
 		ImageView cierraV= new ImageView(cierra);
 		cierraV.setFitHeight(50);
 		cierraV.setFitWidth(50);
@@ -468,8 +513,9 @@ public class MenuDeConsola1 extends Application {
 
         //menu
         BorderPane Menu =new BorderPane();
+        Menu.setPadding(new Insets (10,10,10,10));
         Button archivos =new Button("Archivos");
-        Button anterior =new Button("Anterior");
+        Button anterior =new Button("Ir al inicio");
         Button ayuda =new Button("Ayuda");
         String Proce[]= {"Dulce Mas Vendido","Hacer Pedido","Hacer Dulce","Ganancias","Asignar Sueldo"};
         ComboBox<String> combo = new ComboBox(FXCollections.observableArrayList(Proce));
@@ -518,6 +564,37 @@ public class MenuDeConsola1 extends Application {
                     gp2.setVgap(8);
                     gp2.setHgap(8);
                     Menu.setCenter(gp2);
+                    btn1.setOnAction(new EventHandler<ActionEvent>() {
+            			public void handle(ActionEvent event) {
+            				String p;
+            				String tip=txt1.getText();
+            				String cantidad=txt2.getText();
+            				try {
+            					Cliente.verificarTipo(tip);
+            				}
+            				catch(dulceEquivocado dul) {
+            					Alert n3= new Alert(AlertType.ERROR);
+            					n3.setContentText(dul.getMessage());
+            					n3.show();
+            				}
+            				try {
+            					int numEntero=-1;
+            					try {
+            						numEntero = Integer.parseInt(cantidad);
+            					}
+            					catch(NumberFormatException inte) {
+            						Alert duli=new Alert(AlertType.ERROR);
+            						duli.setContentText("Ingrese una cantidad válida");
+            					}
+            					Cliente.verificarCantidad(numEntero);
+            				}
+            				catch(cincuentaMas cin) {
+            					Alert n3= new Alert(AlertType.ERROR);
+            					n3.setContentText(cin.getMessage());
+            					n3.show();
+            				}
+            			}
+            		});
                 }
                 else if(combo.getValue().equals("Hacer Dulce")){
                     GridPane gp2=new GridPane();
@@ -525,7 +602,7 @@ public class MenuDeConsola1 extends Application {
                     lbl1.setMaxWidth(600);
                     lbl1.setWrapText(true);
                     lbl1.setFont(new Font("Times New Roman",15)); 
-                    Label lbl2=new Label("Dulce a hacer ");
+                    Label lbl2=new Label("Dulce que deesea hacer ");
                     lbl2.setFont(new Font("Times New Roman",13)); 
                     TextField txt1=new TextField();
                     txt1.setMaxWidth(150);
@@ -543,12 +620,34 @@ public class MenuDeConsola1 extends Application {
             			public void handle(ActionEvent event) {
             				String p;
             				String tip=txt1.getText();
-            				CrearDulce cd =new CrearDulce();
-            				p=cd.ejecutar1(tip);
-            				a2.setAlertType(AlertType.CONFIRMATION);
-            				a2.setHeaderText("Se han creado dulces");
-            				a2.setContentText(p);
-            				a2.show();
+            				try {
+            					Cliente.verificarTipo(tip);
+            					CrearDulce cd =new CrearDulce();
+                				p=cd.ejecutar1(tip);
+                				Alert a3=new Alert(AlertType.INFORMATION);
+                				a3.setHeaderText("Información");
+                				a3.setContentText("Estamos verificando, espere un momento, recuerde que nuestra empresa hará 50 ejemplares del tipo de dulce que haya escogido por defecto de la máquina.\nPor favor no presione ninguna tecla.");
+                				a3.show();
+                				try {
+                	                // Wait for 5 secs
+                	                Thread.sleep(10000);
+                	                if (a3.isShowing()) {
+                	                    Platform.runLater(() -> a3.close());
+                	                }
+                	            } catch (Exception exp) {
+                	                exp.printStackTrace();
+                	            }
+                				a2.setAlertType(AlertType.INFORMATION);
+                				
+                				a2.setHeaderText("Se han creado dulces");
+                				a2.setContentText(p);
+                				a2.show();
+            				}
+            				catch(dulceEquivocado dul) {
+            					Alert n3= new Alert(AlertType.ERROR);
+            					n3.setContentText(dul.getMessage());
+            					n3.show();
+            				}
             			}
             		});
                 }
@@ -604,7 +703,7 @@ public class MenuDeConsola1 extends Application {
             				Ganancia ga =new Ganancia();
             				p=ga.ejecutar1();
             				a2.setAlertType(AlertType.CONFIRMATION);
-            				a2.setHeaderText("Se ha ejecutador Ganancia");
+            				a2.setHeaderText("Se ha ejecutado Ganancia");
             				a2.setContentText(p);
             				a2.show();
             			}
@@ -616,15 +715,7 @@ public class MenuDeConsola1 extends Application {
         
 	
         Menu.setCenter(bienvenida);
-        Menu.setBottom(anterior);
-        Menu.setAlignment(anterior, Pos.BOTTOM_LEFT);
-
-        //boton anterior
-        anterior.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
-				window.setScene(programadores);
-			}
-		});
+       
 
         //boton ayuda 
         ayuda.setOnAction(new EventHandler<ActionEvent>() {
@@ -661,18 +752,20 @@ public class MenuDeConsola1 extends Application {
 				window.setScene(Archivo);
 			}
 		});
-       //usar regresar
-        Button regresar1=new Button("Regresar");
-        regresar1.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
-				window.setScene(menu);
-			}
-		});
+      
         BorderPane archivo=new BorderPane();
         Label color1 = new Label("Color Box",imagenV6);
         color1.setFont(new Font("Times New Roman",25));
         archivo.setCenter(color1);
-        archivo.setBottom(regresar1);
+        archivo.setBottom(anterior);
+        Menu.setAlignment(anterior, Pos.BOTTOM_LEFT);
+
+        //boton anterior
+        anterior.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(programadores);
+			}
+		});
         
         
 		VBox layout1 = new VBox(20);
