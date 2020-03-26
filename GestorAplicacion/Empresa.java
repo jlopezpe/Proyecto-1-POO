@@ -8,9 +8,9 @@ public class Empresa {
     public int RUT;
     public String nombre;
     public String direccion;
-    public static int capital=40000000;
-    public static int costos=0;
-    public static int ventas=0;
+    private static int capital=40000000;
+    private static int costos=0;
+    private static int ventas=0;
     public Empresa(int NIT,int RUT,String nombre,String direccion){
         this.NIT=NIT;
         this.RUT=RUT;
@@ -21,7 +21,7 @@ public class Empresa {
     public static void getEmpleados(){
 
         for(Empleado n:Empleado.listaEmpleados){
-            System.out.println(n.getId() + "     " + n.nombre + "     " + n.cargo);
+            System.out.println(n.getId() + "     " + n.getNombre() + "     " + n.getCargo());
         }
 
     }
@@ -30,6 +30,26 @@ public class Empresa {
 
         Empleado.listaEmpleados.add(new Empleado(nom,carg));
     }
+
+	public static int getCostos() {
+		return costos;
+	}
+
+	public static int getVentas() {
+		return ventas;
+	}
+
+	public static int getCapital() {
+		return capital;
+	}
+
+	public static void setCapital(int capital) {
+		Empresa.capital = capital;
+	}
+
+	public static void setVentas(int ventas) {
+		Empresa.ventas = ventas;
+	}
 
 
 }
