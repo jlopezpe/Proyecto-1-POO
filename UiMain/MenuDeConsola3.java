@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.image.*;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
@@ -21,9 +22,9 @@ import javafx.geometry.*;
 import javafx.scene.text.Font;
 import java.io.FileInputStream;
 
-public class MenuDeConsola1 extends Application {
+public class MenuDeConsola3 extends Application {
 	Stage window;
-    Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda;
+    Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
     static int flagUsu=1;
     static int flagContra=1;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
@@ -103,11 +104,10 @@ public class MenuDeConsola1 extends Application {
 				}
 			}
 		});
-		
+
 		Image imagen = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
 		ImageView imagenView= new ImageView(imagen);
-		//imagenView.setFitHeight(200);
-		//imagenView.setFitWidth(100);
+		
 		Label label2 = new Label("",imagenView);
         Button boton1 = new Button("Ingresar");
         boton1.setPrefWidth(80);
@@ -115,7 +115,6 @@ public class MenuDeConsola1 extends Application {
         	String usu=text1.getText();
         	String contra=text2.getText();
 			public void handle(ActionEvent event) {
-				//System.out.print(usu);
 				if(flagUsu==1 && flagContra==1) {
 					window.setScene(programadores);
 				}
@@ -129,13 +128,13 @@ public class MenuDeConsola1 extends Application {
         label1.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				label1.setStyle("-fx-text-fill: blue;");
-				
+
 			}
 		});
 		label1.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				label1.setStyle("-fx-text-fill: purple;");
-				
+
 			}
 		});
         GridPane vista =new GridPane();
@@ -148,126 +147,204 @@ public class MenuDeConsola1 extends Application {
         vista.add(text2, 1, 1);
         vista.add(boton1, 1, 2);
         vista.setAlignment(Pos.CENTER);
-        
+
         //programadores
+        GridPane Total= new GridPane();
         BorderPane total =new BorderPane();
+        GridPane total1 =new GridPane();
         
         BorderPane progra =new BorderPane();
         Label label3 = new Label("BIENVENIDO ESTOS SON NUESTROS PROGRAMADORES, DE CLICK SOBRE EL NOMBRE PARA CONOCER MÁS DETALLES");
-        Button boton7 =new Button ("Ir a los Menús");
+        label3.setMaxWidth(600);
+        label3.setWrapText(true);
+        label3.setFont(new Font("Times New Roman",18)); 
         progra.setTop(label3);
         
-        GridPane programa =new GridPane();
-        programa.setPadding(new Insets(10,10,10,10));
-        programa.setAlignment(Pos.CENTER);
         Button junior =new Button("Junior Muñoz");
+        junior.setPrefWidth(150);
         Button aleja =new Button("Alejandra Muñoz");
+        aleja.setPrefWidth(150);
         Button jonathan =new Button("Jonathan Lopez");
+        jonathan.setPrefWidth(150);
         Button jake =new Button("Jakelin Correa");
+        jake.setPrefWidth(150);
         Button juan =new Button("Juan José Salazar");
-        Button volver =new Button("Volver a los programadores");
-        programa.add(junior,0,0);
-        programa.add(aleja,1,0);
-        programa.add(jonathan,2,0);
-        programa.add(jake,3,0);
-        programa.add(juan,4,0);
+        juan.setPrefWidth(150);
+        
+        VBox Progra3 =new VBox(junior,aleja);
+        VBox Progra1 =new VBox(jonathan,jake);
+        VBox Progra2=new VBox(juan);
+        VBox Progra=new VBox(Progra1,Progra2,Progra3);
         
         //descripcion sistema
+        Button volver =new Button("Volver a los programadores");
+        Button boton7 =new Button ("Ir a los Menús");
+        
+        BorderPane Volver =new BorderPane();
+        Volver.setBottom(boton7);
+        
         GridPane descripcion =new GridPane();
         Label descrip =new Label ("DESCRIPCIÓN DEL SISTEMA");
-        Label descri=new Label ("Este programa esta desarollado para una empresa que produce dulce y los distribuye a sus respetivos clientes");
-        descri.setMaxWidth(300);
-        descri.setWrapText(true);
-        descrip.setMaxWidth(300);
+        Label descri=new Label ("Este programa esta desarollado para una empresa que produce dulce y los distribuye a sus respetivos clientes.");
+        descrip.setMaxWidth(800);
         descrip.setWrapText(true);
+        descrip.setFont(new Font("Times New Roman",20)); 
+        descri.setMaxWidth(500);
+        descri.setWrapText(true);
+        descri.setFont(new Font("Times New Roman",18)); 
         descripcion.add(descrip,0,0);
         descripcion.add(descri,0,1);
-        descripcion.add(boton7, 0,2 );
+        descripcion.setVgap(8);
+        descripcion.setHgap(8);
         descripcion.setAlignment(Pos.BOTTOM_LEFT);
+        descrip.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				descrip.setStyle("-fx-text-fill: blue;");
+				
+			}
+		});
+        descrip.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				descrip.setStyle("-fx-text-fill: green;");
+				
+			}
+		});
         
-        //imagenen
+        
+        
+        //imagenes
         Image imagenes = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
 		ImageView imagenV= new ImageView(imagenes);
-		imagenV.setFitHeight(60);
-		imagenV.setFitWidth(60);
+		imagenV.setFitHeight(120);
+		imagenV.setFitWidth(100);
 		Label ima = new Label("",imagenV);
+		
+		BorderPane Imagenes =new BorderPane();
+        Imagenes.setCenter(ima);
 		
 		Image imagen1 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce1.jpg"));
 		ImageView imagenV1= new ImageView(imagen1);
-		imagenV1.setFitHeight(60);
-		imagenV1.setFitWidth(60);
+		imagenV1.setFitHeight(120);
+		imagenV1.setFitWidth(100);
 		Label ima1 = new Label("",imagenV1);
 		
 		Image imagen2 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce2.jpg"));
 		ImageView imagenV2= new ImageView(imagen2);
-		imagenV2.setFitHeight(60);
-		imagenV2.setFitWidth(60);
+		imagenV2.setFitHeight(120);
+		imagenV2.setFitWidth(100);
 		Label ima2 = new Label("",imagenV2);
 		
 		Image imagen3 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce3.jpg"));
 		ImageView imagenV3= new ImageView(imagen3);
-		imagenV3.setFitHeight(60);
-		imagenV3.setFitWidth(60);
+		imagenV3.setFitHeight(120);
+		imagenV3.setFitWidth(100);
 		Label ima3 = new Label("",imagenV3);
 		
 		Image imagen4 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce4.jpg"));
 		ImageView imagenV4= new ImageView(imagen4);
-		imagenV4.setFitHeight(60);
-		imagenV4.setFitWidth(60);
+		imagenV4.setFitHeight(120);
+		imagenV4.setFitWidth(100);
 		Label ima4 = new Label("",imagenV4);
 		
 		Image imagen5 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce5.jpg"));
 		ImageView imagenV5= new ImageView(imagen5);
-		imagenV5.setFitHeight(60);
-		imagenV5.setFitWidth(60);
+		imagenV5.setFitHeight(120);
+		imagenV5.setFitWidth(100);
 		Label ima5 = new Label("",imagenV5);
 		
-		GridPane Ima =new GridPane();
-		Ima.add(ima, 0, 0);
-		Ima.setAlignment(Pos.BOTTOM_RIGHT);
-		total.setRight(Ima);
-        total.setTop(progra);
-        total.setCenter(programa);
-        total.setBottom(descripcion);
+		Image imagen6 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\color.jpg"));
+		ImageView imagenV6= new ImageView(imagen6);
+		imagenV6.setFitHeight(150);
+		imagenV6.setFitWidth(150);
+		Label color = new Label("",imagenV6);
+
+		total.setTop(progra);
+		total.setLeft(Progra);
+		total.setCenter(color);
+		total.setBottom(Volver);
+		total.setPadding(new Insets(10,10,10,10));
+		// boton cerrar app
+		Image cierra = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\exit.jpg"));
+		ImageView cierraV= new ImageView(cierra);
+		cierraV.setFitHeight(50);
+		cierraV.setFitWidth(50);
+        Button cerra=new Button();
+        BorderPane cerrar =new BorderPane();
+        cerrar.setRight(cerra);
+        BorderPane.setAlignment(cerra, Pos.BOTTOM_RIGHT);
+        cerra.setGraphic(cierraV);
+        cerra.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.close();
+			}
+		});
+		// boton cerrar con imagen
+		
+		total1.add(descripcion, 0, 0);
+		total1.add(Imagenes, 0, 4);
+		total1.setPadding(new Insets(10,10,10,10));
+		total1.setVgap(10);
+        total1.setHgap(10);
+		total1.setAlignment(Pos.BASELINE_RIGHT);
+		
+		Total.add(total, 0, 0);
+		Total.add(total1, 1, 0);
+		Total.add(cerrar, 2, 0);
+		Total.setAlignment(Pos.CENTER);
         
         
         ima.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				total.setRight(ima1);
+				Imagenes.setCenter(ima1);
 
 			}
 		});
         ima1.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				total.setRight(ima2);
+				Imagenes.setCenter(ima2);
 
 			}
 		});
         ima2.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				total.setRight(ima3);
+				Imagenes.setCenter(ima3);
 
 			}
 		});
         ima3.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				total.setRight(ima4);
+				Imagenes.setCenter(ima4);
 
 			}
 		});
         ima4.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				total.setRight(ima5);
+				Imagenes.setCenter(ima5);
 
 			}
 		});
         ima5.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				total.setRight(ima);
+				Imagenes.setCenter(ima);
 
 			}
 		});
-        
+
+       
+    
+        // CAMBIAR COLOR Y YA
+        label3.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				label3.setStyle("-fx-text-fill: yellow;");
+				
+			}
+		});
+		label3.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				label3.setStyle("-fx-text-fill: blue;");
+				
+			}
+		});
         //biografia cada uno
         junior.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -334,8 +411,8 @@ public class MenuDeConsola1 extends Application {
 				window.setScene(juan1);
 			}
 		});
-        
-        
+
+
         //boton volver 
         volver.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -382,23 +459,20 @@ public class MenuDeConsola1 extends Application {
 				window.setScene(asignarSueldo);
 			}
 		});
-        
+
         boton7.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
 				window.setScene(menu);
 			}
 		});
-        //procesos
-        BorderPane hacerpedido=new BorderPane();
-        
-        
+
         //menu
         BorderPane Menu =new BorderPane();
         Button archivos =new Button("Archivos");
         Button anterior =new Button("Anterior");
         Button ayuda =new Button("Ayuda");
         String Proce[]= {"Dulce Mas Vendido","Hacer Pedido","Hacer Dulce","Ganancias","Asignar Sueldo"};
-        ComboBox combo = new ComboBox(FXCollections.observableArrayList(Proce));
+        ComboBox<String> combo = new ComboBox(FXCollections.observableArrayList(Proce));
         combo.setPromptText("Procesos y consultas");
         HBox menu1 =new HBox(archivos,combo,ayuda);
         Menu.setTop(menu1);
@@ -419,21 +493,11 @@ public class MenuDeConsola1 extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if(combo.getValue().equals("Dulce Mas Vendido")){
-
-
-                    /*GridPane gp1=new GridPane();
-                    Label lbl=new Label("Nombre");
-                    TextField nombre=new TextField();
-                    nombre.setText(new ProductoMasVendido().ejecutar_str());
-                    nombre.setEditable(false);
-                    Label lbls=new Label("Cantidad");
-                    TextField cantidad=new TextField();
-                    cantidad.setText(new ProductoMasVendido().ejecutar_int());
-                    cantidad.setEditable(false);
-                    gp1.add(lbl,0,0);
-                    gp1.add(lbls,0,1);
+                    GridPane gp1=new GridPane();
+                    Label nombre=new Label();
+                    nombre.setText(new ProductoMasVendido().ejecutar());
+                    nombre.setDisable(false);
                     gp1.add(nombre,1,0);
-                    gp1.add(cantidad,1,1);
                     Menu.setCenter(gp1);
                     //Menu.setStyle("-fx-border-color : black; -fx-border-width : 0 5 ");*/
                 }else if(combo.getValue().equals("Hacer Pedido")){
@@ -457,17 +521,23 @@ public class MenuDeConsola1 extends Application {
                 }
                 else if(combo.getValue().equals("Hacer Dulce")){
                     GridPane gp2=new GridPane();
+                    Label lbl1=new Label ("Qué tipo de dulce la gustaría crear, por favor escriba como se muestran las opciones \n --chocolate \n --gomitas \n --caramelo");
+                    lbl1.setMaxWidth(600);
+                    lbl1.setWrapText(true);
+                    lbl1.setFont(new Font("Times New Roman",15)); 
                     Label lbl2=new Label("Dulce a hacer ");
-
+                    lbl2.setFont(new Font("Times New Roman",13)); 
                     TextField txt1=new TextField();
+                    txt1.setMaxWidth(150);
                     Button btn1=new Button("Confirmar");
-                    gp2.add(lbl2,0,0);
-                    gp2.add(txt1,1,0);
-                    gp2.add(btn1,1,2);
-                    gp2.setAlignment(Pos.CENTER);
+                    gp2.add(lbl1,0,0);
+                    gp2.add(lbl2,0,1);
+                    gp2.add(txt1,0,2);
+                    gp2.add(btn1, 0, 3);
                     gp2.setPadding(new Insets(10,10,10,10));
                     gp2.setVgap(8);
                     gp2.setHgap(8);
+                    gp2.setAlignment(Pos.CENTER);
                     Menu.setCenter(gp2);
                     btn1.setOnAction(new EventHandler<ActionEvent>() {
             			public void handle(ActionEvent event) {
@@ -482,19 +552,53 @@ public class MenuDeConsola1 extends Application {
             			}
             		});
                 }
-            }
-        });
+                else if(combo.getValue().equals("Asignar Sueldo")){
+                    GridPane gp2=new GridPane();
+                    Label lbl2=new Label("Ingrese el nombre de trabajador ");
+                    Label lbl3=new Label("Ingrese el cargo del trabajador ");
+                    TextField txt1=new TextField();
+                    TextField txt2=new TextField();
+                    Button btn1=new Button("Confirmar");
+                    gp2.add(lbl2,0,0);
+                    gp2.add(lbl3,0,1);
+                    gp2.add(txt1,1,0);
+                    gp2.add(txt2,1,1);
+                    gp2.add(btn1,1,2);
+                    gp2.setAlignment(Pos.CENTER);
+                    gp2.setPadding(new Insets(10,10,10,10));
+                    gp2.setVgap(8);
+                    gp2.setHgap(8);
+                    Menu.setCenter(gp2);
+                    btn1.setOnAction(new EventHandler<ActionEvent>() {
+            			public void handle(ActionEvent event) {
+            				String p;
+            				String nom=txt1.getText();
+            				String car=txt2.getText();
+            				AsignarSueldo as =new AsignarSueldo();
+            				p=as.ejecutar1(nom,car);
+            				a2.setAlertType(AlertType.CONFIRMATION);
+            				a2.setHeaderText("Se ha asignado un sueldo");
+            				a2.setContentText(p);
+            				a2.show();
+            			}
+            		});
+                    
+                }
+            
+        }});
+        
+	
         Menu.setCenter(bienvenida);
         Menu.setBottom(anterior);
-        Menu.setAlignment(anterior, Pos.BOTTOM_RIGHT);
-        
+        Menu.setAlignment(anterior, Pos.BOTTOM_LEFT);
+
         //boton anterior
         anterior.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
 				window.setScene(programadores);
 			}
 		});
-        
+
         //boton ayuda 
         ayuda.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -502,6 +606,7 @@ public class MenuDeConsola1 extends Application {
 			}
 		});
 
+        //ayuda
         BorderPane ayuda1 =new BorderPane();
         Label ayuda2 =new Label("Estos son nuestros programadores");
         ayuda2.setFont(new Font("Times New Roman",15));
@@ -523,35 +628,26 @@ public class MenuDeConsola1 extends Application {
 				window.setScene(menu);
 			}
 		});
+        //Archivo
+        archivos.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(Archivo);
+			}
+		});
+       //usar regresar
+        Button regresar1=new Button("Regresar");
+        regresar1.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(menu);
+			}
+		});
+        BorderPane archivo=new BorderPane();
+        Label color1 = new Label("Color Box",imagenV6);
+        color1.setFont(new Font("Times New Roman",25));
+        archivo.setCenter(color1);
+        archivo.setBottom(regresar1);
         
         
-        
-        //intento cambio de imagenes va en programadores
-        
-        
-        
-		
-		/*Image imagenes1 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce3.jpg"));
-		ImageView imagenV1= new ImageView(imagenes1);
-		imagenView.setFitHeight(200);
-		imagenView.setFitWidth(100);
-		Label ima1 = new Label("",imagenV1);
-		
-		/*Image imagenes2 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce4.jpg"));
-		ImageView imagenV2= new ImageView(imagenes2);
-		imagenView.setFitHeight(200);
-		imagenView.setFitWidth(100);
-		Label ima2 = new Label("",imagenV2);
-		
-		Image imagenes3 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce5.jpg"));
-		ImageView imagenV3= new ImageView(imagenes3);
-		imagenView.setFitHeight(200);
-		imagenView.setFitWidth(100);
-		Label ima3 = new Label("",imagenV3);
-		*/
-        
-		
-		
 		VBox layout1 = new VBox(20);
         layout1.getChildren().addAll(label1,vista,label2);
         registro = new Scene(layout1, 500, 200);
@@ -578,16 +674,21 @@ public class MenuDeConsola1 extends Application {
         asignarSueldo= new Scene (layout7,500,200);
         
         VBox layout8 = new VBox(20);
-        layout8.getChildren().addAll(total);
-        programadores = new Scene(layout8, 650, 150);
+        layout8.getChildren().addAll(Total);
+        programadores = new Scene(layout8, 900, 300);
         
         VBox layout9 = new VBox(20);
         layout9.getChildren().addAll(Menu);
-        menu = new Scene(layout9, 500, 200);
+        menu = new Scene(layout9, 600, 300);
         
         VBox layout10 = new VBox(20);
         layout10.getChildren().addAll(ayuda1);
         Ayuda= new Scene(layout10,400,150);
+        
+        VBox layout11 = new VBox(20);
+        layout11.getChildren().addAll(archivo);
+        Archivo= new Scene(layout11,500,200);
+        
         
         window.setScene(registro);
         window.setTitle("COLOR BOX");
