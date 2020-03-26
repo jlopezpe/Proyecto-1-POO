@@ -23,7 +23,7 @@ import java.io.FileInputStream;
 
 public class MenuDeConsola3 extends Application {
 	Stage window;
-    Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda;
+    Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
     static int flagUsu=1;
     static int flagContra=1;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
@@ -214,41 +214,41 @@ public class MenuDeConsola3 extends Application {
         //imagenes
         Image imagenes = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce.jpg"));
 		ImageView imagenV= new ImageView(imagenes);
-		imagenV.setFitHeight(100);
-		imagenV.setFitWidth(80);
+		imagenV.setFitHeight(120);
+		imagenV.setFitWidth(100);
 		Label ima = new Label("",imagenV);
 		
 		BorderPane Imagenes =new BorderPane();
-        Imagenes.setBottom(ima);
+        Imagenes.setCenter(ima);
 		
 		Image imagen1 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce1.jpg"));
 		ImageView imagenV1= new ImageView(imagen1);
-		imagenV1.setFitHeight(100);
-		imagenV1.setFitWidth(80);
+		imagenV1.setFitHeight(120);
+		imagenV1.setFitWidth(100);
 		Label ima1 = new Label("",imagenV1);
 		
 		Image imagen2 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce2.jpg"));
 		ImageView imagenV2= new ImageView(imagen2);
-		imagenV2.setFitHeight(100);
-		imagenV2.setFitWidth(80);
+		imagenV2.setFitHeight(120);
+		imagenV2.setFitWidth(100);
 		Label ima2 = new Label("",imagenV2);
 		
 		Image imagen3 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce3.jpg"));
 		ImageView imagenV3= new ImageView(imagen3);
-		imagenV3.setFitHeight(100);
-		imagenV3.setFitWidth(80);
+		imagenV3.setFitHeight(120);
+		imagenV3.setFitWidth(100);
 		Label ima3 = new Label("",imagenV3);
 		
 		Image imagen4 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce4.jpg"));
 		ImageView imagenV4= new ImageView(imagen4);
-		imagenV4.setFitHeight(100);
-		imagenV4.setFitWidth(80);
+		imagenV4.setFitHeight(120);
+		imagenV4.setFitWidth(100);
 		Label ima4 = new Label("",imagenV4);
 		
 		Image imagen5 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\dulce5.jpg"));
 		ImageView imagenV5= new ImageView(imagen5);
-		imagenV5.setFitHeight(100);
-		imagenV5.setFitWidth(80);
+		imagenV5.setFitHeight(120);
+		imagenV5.setFitWidth(100);
 		Label ima5 = new Label("",imagenV5);
 		
 		Image imagen6 = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\color.jpg"));
@@ -260,11 +260,27 @@ public class MenuDeConsola3 extends Application {
 		total.setTop(progra);
 		total.setLeft(Progra);
 		total.setCenter(color);
+		total.setBottom(Volver);
 		total.setPadding(new Insets(10,10,10,10));
-		
+		// boton cerrar app
+		Image cierra = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\imagenes\\exit.jpg"));
+		ImageView cierraV= new ImageView(cierra);
+		cierraV.setFitHeight(50);
+		cierraV.setFitWidth(50);
+        Button cerra=new Button();
+        BorderPane cerrar =new BorderPane();
+        cerrar.setRight(cerra);
+        BorderPane.setAlignment(cerra, Pos.BOTTOM_RIGHT);
+        cerra.setGraphic(cierraV);
+        cerra.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.close();
+			}
+		});
+		// boton cerrar con imagen
 		
 		total1.add(descripcion, 0, 0);
-		total1.add(Imagenes, 0, 2);
+		total1.add(Imagenes, 0, 4);
 		total1.setPadding(new Insets(10,10,10,10));
 		total1.setVgap(10);
         total1.setHgap(10);
@@ -272,43 +288,43 @@ public class MenuDeConsola3 extends Application {
 		
 		Total.add(total, 0, 0);
 		Total.add(total1, 1, 0);
-		Total.add(Volver, 0, 3);
+		Total.add(cerrar, 2, 0);
 		Total.setAlignment(Pos.CENTER);
         
         
         ima.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Imagenes.setBottom(ima1);
+				Imagenes.setCenter(ima1);
 
 			}
 		});
         ima1.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Imagenes.setBottom(ima2);
+				Imagenes.setCenter(ima2);
 
 			}
 		});
         ima2.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Imagenes.setBottom(ima3);
+				Imagenes.setCenter(ima3);
 
 			}
 		});
         ima3.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Imagenes.setBottom(ima4);
+				Imagenes.setCenter(ima4);
 
 			}
 		});
         ima4.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Imagenes.setBottom(ima5);
+				Imagenes.setCenter(ima5);
 
 			}
 		});
         ima5.setOnMouseExited(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				Imagenes.setBottom(ima);
+				Imagenes.setCenter(ima);
 
 			}
 		});
@@ -448,9 +464,6 @@ public class MenuDeConsola3 extends Application {
 				window.setScene(menu);
 			}
 		});
-        //procesos
-        BorderPane hacerpedido=new BorderPane();
-
 
         //menu
         BorderPane Menu =new BorderPane();
@@ -584,6 +597,25 @@ public class MenuDeConsola3 extends Application {
 				window.setScene(menu);
 			}
 		});
+        //Archivo
+        archivos.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(Archivo);
+			}
+		});
+       //usar regresar
+        Button regresar1=new Button("Regresar");
+        regresar1.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(menu);
+			}
+		});
+        BorderPane archivo=new BorderPane();
+        Label color1 = new Label("Color Box",imagenV6);
+        color1.setFont(new Font("Times New Roman",25));
+        archivo.setCenter(color1);
+        archivo.setBottom(regresar1);
+        
         
 		VBox layout1 = new VBox(20);
         layout1.getChildren().addAll(label1,vista,label2);
@@ -622,8 +654,14 @@ public class MenuDeConsola3 extends Application {
         layout10.getChildren().addAll(ayuda1);
         Ayuda= new Scene(layout10,400,150);
         
+        VBox layout11 = new VBox(20);
+        layout11.getChildren().addAll(archivo);
+        Archivo= new Scene(layout11,500,200);
+        
+        
         window.setScene(registro);
         window.setTitle("COLOR BOX");
         window.show();
 	}
+
 }
