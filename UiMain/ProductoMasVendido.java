@@ -1,9 +1,11 @@
 package UiMain;
 
 import Personas.Cso;
-  public class ProductoMasVendido extends OpcionDeMenu{
-	  public void ejecutar(){ 
+
+public class ProductoMasVendido extends OpcionDeMenu{
+	  public  String ejecutar(){ 
 		  String mensaje=Cso.mayorVenta();
-		  System.out.println("El producto m·s vendido hasta ahora es "+mensaje);
-	  } 
-  }
+		  return ("El producto m√°s vendido hasta ahora es "+mensaje);
+	  }
+
+}
