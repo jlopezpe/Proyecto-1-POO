@@ -1,6 +1,6 @@
 package Personas;
 public class Persona {
-    public String nombre;
+    private String nombre;
     private long id;
     Persona(){}
     Persona(String nombre){
@@ -10,4 +10,7 @@ public class Persona {
         this(nombre);
         this.id=id;
     }
+	public String getNombre() {
+		return nombre;
+	}
 }
