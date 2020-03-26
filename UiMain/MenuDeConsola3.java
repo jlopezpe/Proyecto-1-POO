@@ -22,7 +22,7 @@ import javafx.geometry.*;
 import javafx.scene.text.Font;
 import java.io.FileInputStream;
 
-public class MenuDeConsola3 extends Application {
+public class MenuDeConsola1 extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
     static int flagUsu=1;
@@ -495,11 +495,11 @@ public class MenuDeConsola3 extends Application {
                 if(combo.getValue().equals("Dulce Mas Vendido")){
                     GridPane gp1=new GridPane();
                     Label nombre=new Label();
-                    nombre.setText(new ProductoMasVendido().ejecutar());
+                    nombre.setText(new ProductoMasVendido().ejecutar1());
                     nombre.setDisable(false);
                     gp1.add(nombre,1,0);
                     Menu.setCenter(gp1);
-                    //Menu.setStyle("-fx-border-color : black; -fx-border-width : 0 5 ");*/
+                    //Menu.setStyle("-fx-border-color : black; -fx-border-width : 0 5 ");
                 }else if(combo.getValue().equals("Hacer Pedido")){
                     GridPane gp2=new GridPane();
                     Label lbl2=new Label("Producto:");
@@ -578,6 +578,33 @@ public class MenuDeConsola3 extends Application {
             				p=as.ejecutar1(nom,car);
             				a2.setAlertType(AlertType.CONFIRMATION);
             				a2.setHeaderText("Se ha asignado un sueldo");
+            				a2.setContentText(p);
+            				a2.show();
+            			}
+            		});
+                    
+                }
+                else if(combo.getValue().equals("Ganancias")){
+                    GridPane gp2=new GridPane();
+                    Label lbl2=new Label("De click a Confirmar para mostrar las ganancias de la empresa");
+                    //Label lbl3=new Label("Ingrese el cargo del trabajador ");
+
+                    Button btn1=new Button("Confirmar");
+                    gp2.add(lbl2,0,0);
+                    //gp2.add(lbl3,0,1);
+                    gp2.add(btn1,1,2);
+                    gp2.setAlignment(Pos.CENTER);
+                    gp2.setPadding(new Insets(10,10,10,10));
+                    gp2.setVgap(8);
+                    gp2.setHgap(8);
+                    Menu.setCenter(gp2);
+                    btn1.setOnAction(new EventHandler<ActionEvent>() {
+            			public void handle(ActionEvent event) {
+            				String p;
+            				Ganancia ga =new Ganancia();
+            				p=ga.ejecutar1();
+            				a2.setAlertType(AlertType.CONFIRMATION);
+            				a2.setHeaderText("Se ha ejecutador Ganancia");
             				a2.setContentText(p);
             				a2.show();
             			}
