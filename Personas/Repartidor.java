@@ -25,11 +25,14 @@ public void Repartir(Cliente a) {
 
     public boolean disponibilidad(){
         if(numPedidos!=0){
-            //System.out.println("no hay Repartidores disponibles, por favor intentelo m·s tarde");
+            //System.out.println("no hay Repartidores disponibles, por favor intentelo m√°s tarde");
             return false;
         }
         else{
             return true;
         }
     }
+	public String getNombre() {
+		return getNombre();
+	}
 }
