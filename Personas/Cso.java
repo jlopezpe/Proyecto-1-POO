@@ -82,13 +82,13 @@ public class Cso extends Empleado {
     public static String unidades_mayorVenta(){
         String mensaje2="";
         if(getVentaChocolate()>getVentaGomitas() && getVentaChocolate()>getVentaCaramelos()) {
-            mensaje2=String.valueOf(getVentaChocolate());
+            mensaje2=String.valueOf(getVentaChocolate()/2);
         }
         else if(getVentaGomitas()>getVentaChocolate() && getVentaGomitas()>getVentaCaramelos()) {
-            mensaje2=String.valueOf(getVentaGomitas());
+            mensaje2=String.valueOf(getVentaGomitas()/2);
         }
         else if(getVentaCaramelos()>getVentaChocolate() && getVentaCaramelos()>getVentaGomitas()) {
-            mensaje2=String.valueOf(getVentaCaramelos());
+            mensaje2=String.valueOf(getVentaCaramelos()/2);
 
         }
         return mensaje2;
