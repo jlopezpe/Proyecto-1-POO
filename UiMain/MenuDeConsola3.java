@@ -31,8 +31,8 @@ import java.io.FileInputStream;
 public class MenuDeConsola extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
-    static int flagUsu=0;
-    static int flagContra=0;
+    static int flagUsu=1;
+    static int flagContra=1;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -537,29 +537,14 @@ public class MenuDeConsola extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-            	if(combo.getValue().equals("Dulce Mas Vendido")){
-
-
+                if(combo.getValue().equals("Dulce Mas Vendido")){
                     GridPane gp1=new GridPane();
-                    Label msg=new Label("Dulce más Vendido:");
-                    Label lblNombre=new Label("Nombre");
-                    TextField txtNombre=new TextField();
-                    txtNombre.setText(new ProductoMasVendido().ejecutar_str());
-                    txtNombre.setEditable(false);
-                    Label lblCantidad=new Label("Cantidad");
-                    TextField txtCantidad=new TextField();
-                    txtCantidad.setText(new ProductoMasVendido().ejecutar_int());
-                    txtCantidad.setEditable(false);
-                    gp1.add(msg,0,0);
-                    gp1.add(lblNombre,0,1);
-                    gp1.add(lblCantidad,0,2);
-                    gp1.add(txtNombre,1,1);
-                    gp1.add(txtCantidad,1,2);
-                    gp1.setAlignment(Pos.CENTER);
-                    gp1.setPadding(new Insets(10,10,10,10));
-                    gp1.setVgap(8);
-                    gp1.setHgap(8);
+                    Label nombre=new Label();
+                    nombre.setText(new ProductoMasVendido().ejecutar1());
+                    nombre.setDisable(false);
+                    gp1.add(nombre,1,0);
                     Menu.setCenter(gp1);
+                    //Menu.setStyle("-fx-border-color : black; -fx-border-width : 0 5 ");
                 }else if(combo.getValue().equals("Hacer Pedido")){
                     GridPane gp2=new GridPane();
                     Label lbl2=new Label("Producto:");
@@ -665,7 +650,6 @@ public class MenuDeConsola extends Application {
             			}
             		});
                 }
-            	
                 else if(combo.getValue().equals("Asignar Sueldo")){
                     GridPane gp2=new GridPane();
                     Label lbl2=new Label("Ingrese el nombre de trabajador ");
@@ -725,103 +709,8 @@ public class MenuDeConsola extends Application {
             		});
                     
                 }
-            	
-            	
-                else if(combo.getValue().equals("Hacer Pedido")){
-                    GridPane gp2=new GridPane();
-                    Label lbl2=new Label("Nombre");
-                    TextField nombre1=new TextField();
-                    Label lbl3=new Label("Dirección");
-                    TextField direccion=new TextField();
-                    Label lbl4=new Label(("Teléfono"));
-                    TextField telefono=new TextField();
-                    String texto=telefono.getText();//es int
-                    Button continuar=new Button("Continuar");
-                    continuar.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            Alert msg=new Alert(AlertType.NONE);
-                            GridPane gp3=new GridPane();
-                            Label tipo=new Label("Tipo de Dulce");
-                            TextField tipo_dulce=new TextField();
-                            Label cantidad=new Label("Cantidad");
-                            TextField cantidad_dulce=new TextField();
-                            Label pregunta=new Label("¿Desea ordenar algo más?");
-                            Button btnsi=new Button("Si");
-                            Button btnno=new Button("No");
-                            gp3.add(tipo,0,0);
-                            gp3.add(tipo_dulce,1,0);
-                            gp3.add(cantidad,0,1);
-                            gp3.add(cantidad_dulce,1,1);
-                            gp3.add(pregunta,0,2);
-                            gp3.add(btnsi,0,3);
-                            gp3.add(btnno,1,3);
-                            gp3.setAlignment(Pos.CENTER);
-                            gp3.setPadding(new Insets(10,10,10,10));
-                            gp3.setVgap(8);
-                            gp3.setHgap(8);
-
-                            Menu.setCenter(gp3);
-                            btnsi.setOnAction(new EventHandler<ActionEvent>() {
-                                @Override
-                                public void handle(ActionEvent event) {
-                                    new hacerPedido().ejecutar2(nombre1.getText(),direccion.getText(),telefono.getText(),"si",tipo_dulce.getText(),cantidad_dulce.getText());
-                                    tipo_dulce.clear();
-                                    cantidad_dulce.clear();
-
-                                }
-
-                            });
-                            btnno.setOnAction(new EventHandler<ActionEvent>() {
-                                @Override
-                                public void handle(ActionEvent event) {
-                                    msg.setAlertType(AlertType.INFORMATION);
-                                    msg.setTitle("Ventana de Información");
-                                    msg.setContentText("El repartidor va en camino, gracias por utilizar nuestros servicios. Hasta luego");
-                                    msg.show();
-                                    msg.setAlertType(AlertType.INFORMATION);
-                                    GridPane gpPedido=new GridPane();
-                                    TextField txtpedido=new TextField(new hacerPedido().ejecutar2(nombre1.getText(),direccion.getText(),telefono.getText(),"no",tipo_dulce.getText(),cantidad_dulce.getText()));
-
-                                    Button ok=new Button("OK");
-                                    ok.setOnAction(new EventHandler<ActionEvent>() {
-                                        @Override
-                                        public void handle(ActionEvent event) {
-                                            window.setScene(programadores);
-                                        }
-                                    });
-                                    gpPedido.add(txtpedido,0,0);
-                                    gpPedido.add(ok,0,1);
-                                    gpPedido.setAlignment(Pos.CENTER);
-                                    gpPedido.setPadding(new Insets(10,10,10,10));
-                                    gpPedido.setVgap(8);
-                                    gpPedido.setHgap(8);
-                                    Menu.setCenter(gpPedido);
-                                }
-                            });
-
-                        }
-                    });
-
-                    //agregar msgb
-                    gp2.add(lbl2,0,0);//nombre
-                    gp2.add(lbl3,0,1);//direccion
-                    gp2.add(lbl4,0,2);//telefono
-                    gp2.add(nombre1,1,0);
-                    gp2.add(direccion,1,1);
-                    gp2.add(telefono,1,2);
-                    gp2.add(continuar,1,3);
-                    gp2.setAlignment(Pos.CENTER);
-                    gp2.setPadding(new Insets(10,10,10,10));
-                    gp2.setVgap(8);
-                    gp2.setHgap(8);
-                    Menu.setCenter(gp2);
-                    //añadir gp3 y agregar ahi tipo,cantidad,etc
-                }
-            }
-        });
             
-       
+        }});
         
 	
         Menu.setCenter(bienvenida);
@@ -856,6 +745,7 @@ public class MenuDeConsola extends Application {
 				window.setScene(menu);
 			}
 		});
+        
         //Archivo
         archivos.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
