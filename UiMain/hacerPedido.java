@@ -110,13 +110,13 @@ public class hacerPedido extends OpcionDeMenu{
 		return null;
 	}
 	public String ejecutar2(String nombre,String direccion,String telefono,String decision,String tipo,String cantidad){
-        int cant=Integer.parseInt(cantidad.trim());
-        Cliente cliente=new Cliente(nombre,telefono,direccion);
-        cliente.hacerPedido(tipo,cant);
-        String mens="";
-        if(decision.equals("no")){
-            mens=cliente.mostrarFactura();
-        }return mens;
+        	int cant=Integer.parseInt(cantidad.trim());
+        	Cliente cliente=new Cliente(nombre,telefono,direccion);
+        	cliente.hacerPedido(tipo,cant);
+        	String mens="";
+        	if(decision.equals("no")){
+            		mens=cliente.mostrarFactura();
+        	}return mens;
 
 
     	}	
