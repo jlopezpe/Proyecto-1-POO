@@ -28,11 +28,14 @@ public class Cliente extends Persona{
 			throw new cincuentaMas(cantidad);
 		}
 	}
-	public void mostrarFactura() {
-		for(int i=0;i<miFactura.size();i++) {
-			System.out.println(miFactura.get(i));
-		}
-	}
+	public String mostrarFactura() {
+        	String msg1="";
+        	for(int i=0;i<miFactura.size();i++) {
+            		msg1+=(miFactura.get(i) + "\n");
+        	}
+        
+        return msg1;
+    	}
 	public long getCel() {
         return cel;
     }
