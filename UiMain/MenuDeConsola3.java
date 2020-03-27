@@ -31,8 +31,8 @@ import java.io.FileInputStream;
 public class MenuDeConsola extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
-    static int flagUsu=0;
-    static int flagContra=0;
+    static int flagUsu=1;
+    static int flagContra=1;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -538,8 +538,7 @@ public class MenuDeConsola extends Application {
             @Override
             public void handle(ActionEvent event) {
             	if(combo.getValue().equals("Dulce Mas Vendido")){
-
-
+            		
                     GridPane gp1=new GridPane();
                     Label msg=new Label("Dulce más Vendido:");
                     Label lblNombre=new Label("Nombre");
@@ -564,7 +563,6 @@ public class MenuDeConsola extends Application {
                     GridPane gp2=new GridPane();
                     Label lbl2=new Label("Producto:");
                     Label lbl3=new Label("Cantidad:");
-
                     TextField txt1=new TextField();
                     TextField txt2=new TextField();
                     Button btn1=new Button("Confirmar");
@@ -749,17 +747,19 @@ public class MenuDeConsola extends Application {
                             Label pregunta=new Label("¿Desea ordenar algo más?");
                             Button btnsi=new Button("Si");
                             Button btnno=new Button("No");
+                            Button confi=new Button("Confirmar");
                             gp3.add(tipo,0,0);
                             gp3.add(tipo_dulce,1,0);
                             gp3.add(cantidad,0,1);
                             gp3.add(cantidad_dulce,1,1);
-                            gp3.add(pregunta,0,2);
-                            gp3.add(btnsi,0,3);
-                            gp3.add(btnno,1,3);
-                            gp3.setAlignment(Pos.CENTER);
+                            gp3.add(pregunta,0,3);
+                            gp3.add(btnsi,0,4);
+                            gp3.add(btnno,1,4);
+                            gp3.add(confi, 0, 2);
                             gp3.setPadding(new Insets(10,10,10,10));
                             gp3.setVgap(8);
                             gp3.setHgap(8);
+                            gp3.setAlignment(Pos.CENTER);
 
                             Menu.setCenter(gp3);
                             btnsi.setOnAction(new EventHandler<ActionEvent>() {
@@ -781,8 +781,10 @@ public class MenuDeConsola extends Application {
                                     msg.show();
                                     msg.setAlertType(AlertType.INFORMATION);
                                     GridPane gpPedido=new GridPane();
-                                    TextField txtpedido=new TextField(new hacerPedido().ejecutar2(nombre1.getText(),direccion.getText(),telefono.getText(),"no",tipo_dulce.getText(),cantidad_dulce.getText()));
-
+                                    Label txtpedido=new Label(new hacerPedido().ejecutar2(nombre1.getText(),direccion.getText(),telefono.getText(),"no",tipo_dulce.getText(),cantidad_dulce.getText()));
+                                    txtpedido.setMaxWidth(600);
+                                    txtpedido.setWrapText(true);
+                                    txtpedido.setFont(new Font("Times New Roman",15)); 
                                     Button ok=new Button("OK");
                                     ok.setOnAction(new EventHandler<ActionEvent>() {
                                         @Override
