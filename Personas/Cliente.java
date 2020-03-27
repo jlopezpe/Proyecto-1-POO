@@ -6,9 +6,9 @@ import Excepciones.cincuentaMas;
 import Excepciones.dulceEquivocado;
 public class Cliente extends Persona{
 	
-	private long cel;
+	private String cel;
     private String Direccion;
-    public Cliente(String nombre, long cel, String direccion){
+    public Cliente(String nombre, String cel, String direccion){
         super(nombre);
         this.cel=cel;
         Direccion=direccion;
