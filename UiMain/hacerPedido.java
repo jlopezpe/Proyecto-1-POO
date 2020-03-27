@@ -42,7 +42,7 @@ public class hacerPedido extends OpcionDeMenu{
 				
 	
 		
-		Cliente cliente =new Cliente(nombre,0,direccion);
+		Cliente cliente =new Cliente(nombre,"0",direccion);
 		
 		
 		
