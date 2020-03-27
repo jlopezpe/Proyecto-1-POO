@@ -33,6 +33,7 @@ public class MenuDeConsola extends Application {
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
     static int flagUsu=1;
     static int flagContra=1;
+    String si="no";
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -760,14 +761,72 @@ public class MenuDeConsola extends Application {
                             gp3.setVgap(8);
                             gp3.setHgap(8);
                             gp3.setAlignment(Pos.CENTER);
-
+                            
                             Menu.setCenter(gp3);
+                            confi.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                	Boolean verdadTipo=false;
+                                	Boolean verdadCant=false;
+                                	String p;
+                    				String tip=tipo_dulce.getText();
+                    				String cantidad1=cantidad_dulce.getText();
+                    				try {
+                    					Cliente.verificarTipo(tip);
+                    					verdadTipo=true;
+                    					
+                    				}
+                    				catch(dulceEquivocado dul) {
+                    					Alert n3= new Alert(AlertType.ERROR);
+                    					n3.setContentText(dul.getMessage());
+                    					n3.show();
+                    					si="no";
+                    				}
+                    				try {
+                    					int numEntero=-1;
+                    					try {
+                    						numEntero = Integer.parseInt(cantidad1);
+                    						
+                    					}
+                    					catch(NumberFormatException inte) {
+                    						Alert duli=new Alert(AlertType.ERROR);
+                    						duli.setContentText("Ingrese una cantidad válida");
+                    						si="no";
+                    					}
+                    					Cliente.verificarCantidad(numEntero);
+                    					verdadCant=true;
+                    				
+                    				}
+                    				catch(cincuentaMas cin) {
+                    					Alert n3= new Alert(AlertType.ERROR);
+                    					n3.setContentText(cin.getMessage());
+                    					n3.show();
+                    					si="no";
+                    				}
+                    				if(verdadTipo==true && verdadCant==true) {
+                    					Alert n3= new Alert(AlertType.INFORMATION);
+                    					n3.setContentText("Datos correctos");
+                    					n3.show();
+                    					si="si";
+                    				}
+
+                                }
+
+                            });
                             btnsi.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
-                                    new hacerPedido().ejecutar2(nombre1.getText(),direccion.getText(),telefono.getText(),"si",tipo_dulce.getText(),cantidad_dulce.getText());
+                                    if(si.contentEquals("si")) {
+                                    	new hacerPedido().ejecutar2(nombre1.getText(),direccion.getText(),telefono.getText(),"si",tipo_dulce.getText(),cantidad_dulce.getText());
+                                    
                                     tipo_dulce.clear();
                                     cantidad_dulce.clear();
+                                    }
+                                    else {
+                                    	Alert n3= new Alert(AlertType.INFORMATION);
+                    					n3.setContentText("No ha presionado el botón confirmar o los datos aún no son correctos");
+                    					n3.show();
+                                    }
 
                                 }
 
