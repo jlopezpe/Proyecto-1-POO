@@ -31,8 +31,8 @@ import java.io.FileInputStream;
 public class MenuDeConsola extends Application {
 	Stage window;
     Scene registro,inicio,masVendido,hacerPedido,hacerDulce,ganancias, asignarSueldo,programadores,menu,archivo,ayuda,procesos,Ayuda,Archivo;
-    static int flagUsu=0;
-    static int flagContra=0;
+    static int flagUsu=1;
+    static int flagContra=1;
     ArrayList<OpcionDeMenu> opciones=new ArrayList<OpcionDeMenu>();
 	public void anadirOpcion(OpcionDeMenu op) {
 		opciones.add(op);
@@ -529,7 +529,6 @@ public class MenuDeConsola extends Application {
         combo.valueProperty().addListener(new ChangeListener<String>() {
 			public void changed(ObservableValue arg0, String arg1, String texto) {
 				if(texto.contentEquals("Hacer Pedido")) {
-					System.out.println(texto);
 				}
 			}
         });
@@ -752,12 +751,26 @@ public class MenuDeConsola extends Application {
 				window.setScene(Archivo);
 			}
 		});
+        Button Regresar =new Button("Regresar");
+        Regresar.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				window.setScene(menu);
+			}
+		});
       
         BorderPane archivo=new BorderPane();
         Label color1 = new Label("Color Box",imagenV6);
         color1.setFont(new Font("Times New Roman",25));
+        GridPane archi =new GridPane();
+        archi.add(anterior,0,0);
+        archi.add(Regresar,1,0);
+        archi.setAlignment(Pos.BOTTOM_RIGHT);
+        archi.setPadding(new Insets(10,10,10,10));
+        archi.setVgap(8);
+        archi.setHgap(8);
         archivo.setCenter(color1);
-        archivo.setBottom(anterior);
+        archivo.setBottom(archi);
+
         Menu.setAlignment(anterior, Pos.BOTTOM_LEFT);
 
         //boton anterior
