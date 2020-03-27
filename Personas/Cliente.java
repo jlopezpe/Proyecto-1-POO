@@ -36,7 +36,7 @@ public class Cliente extends Persona{
         
         return msg1;
     	}
-	public long getCel() {
+	public String getCel() {
         return cel;
     }
 
@@ -44,7 +44,7 @@ public class Cliente extends Persona{
         return Direccion;
     }
 
-    public void setCel(long cel) {
+    public void setCel(String cel) {
         this.cel = cel;
     }
 
