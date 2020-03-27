@@ -408,7 +408,7 @@ public class MenuDeConsola extends Application {
         aleja.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
 				BorderPane aleja =new BorderPane();
-				Label Aleja =new Label("Hola soy Alejandra,tengo 19 años.Soy estudiante de la Universidad Nacional de Colombia, actualmente estoy estudiando ingenieria de sistemas.Una de las cosas que más me apasinan son los idiomas.");
+				Label Aleja =new Label("Hola soy Alejandra,tengo 19 años.Soy estudiante de la Universidad Nacional de Colombia, actualmente estoy estudiando ingenieria de sistemas.Una de las cosas que más me apasionan son los idiomas.");
 				Aleja.setMaxWidth(400);
 				Aleja.setWrapText(true);
 				Aleja.setFont(new Font("Arial",20)); 
